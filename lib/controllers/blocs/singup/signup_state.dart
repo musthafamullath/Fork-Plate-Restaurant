@@ -1,7 +1,6 @@
 part of 'signup_bloc.dart';
 
-@immutable
-sealed class SignupState {}
+ class SignupState {}
 
 final class SignupInitial extends SignupState {}
 
@@ -9,8 +8,9 @@ final class SignupInitial extends SignupState {}
 class SellerRegistrationSuccessState extends SignupState {}
 
 //for failed
-class SellerRegistrationFailedInvalidFeildsorFailedToRegisterState
-    extends SignupState {}
+class SellerRegistrationFailedInvalidfields extends SignupState{}
+
+class SellerRegistrationFailedToLogin extends SignupState{}
 
 class SellerRegistrationFieldToParseBodyState extends SignupState {}
 

@@ -174,7 +174,6 @@ class _ScreenRegisterPageState extends State<ScreenRegisterPage> {
                       BlocConsumer<SignupBloc, SignupState>(
                         listener: (context, state) {
                           if (state is SellerRegistrationSuccessState) {
-                            print("success state worked");
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
                               builder: (context) => ScreenMainPage(),
@@ -182,18 +181,16 @@ class _ScreenRegisterPageState extends State<ScreenRegisterPage> {
                             showSnack(context, Colors.green,
                                 "successfully signed up");
                           } else if (state
-                              is SellerRegistrationFailedInvalidFeildsorFailedToRegisterState) {
-                            print(
-                                "failed invalid fields or failed to register");
-                            showSnack(context, Colors.red,
-                                "failed invalid fields or failed to register");
+                              is SellerRegistrationFailedInvalidfields) {
+                            showSnack(
+                                context, Colors.amber, "failed. invalid fields");
+                          } else if (state is SellerRegistrationFailedToLogin) {
+                            showSnack(context, Colors.amber, "failed to Login");
                           } else if (state
                               is SellerRegistrationFieldToParseBodyState) {
-                            print("failed to parse body");
                             showSnack(
-                                context, Colors.red, "failed to parse body");
+                                context, Colors.orange, "failed to parse body");
                           } else if (state is SellerRegistrationErrorState) {
-                            print("Error");
                             showSnack(context, Colors.red, "Error");
                           }
                         },

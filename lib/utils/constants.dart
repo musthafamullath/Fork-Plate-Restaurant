@@ -13,3 +13,5 @@ const kWidth50 = SizedBox(width: 50);
 const divider1 = Divider(thickness: 1, color: Colors.black);
 const divider2 = Divider(thickness: 2, color: Colors.grey);
 const divider5 = Divider(thickness: 5, color: Colors.black);
+
+const Color orange = Colors.orange;

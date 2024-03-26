@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/controllers/api_end_points/api_end_points.dart';
 import 'package:foodie_fly_restaurant/models/restaurant.dart';
@@ -8,13 +9,11 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiSellerAuthentication {
-  
   //----------------------------------------------------------login----------------------------------------------------------//
   static Future<String> register(
       RestaurantRegisteration restaurantRegisteration) async {
     const url =
         "${ApiEndPoints.baseUrl}${ApiEndPoints.seller}${ApiEndPoints.register}";
-        print(url);
     final data = {
       "email": restaurantRegisteration.email,
       "password": restaurantRegisteration.password,
@@ -23,26 +22,29 @@ class ApiSellerAuthentication {
       "description": restaurantRegisteration.description,
       "pinCode": restaurantRegisteration.pinCode,
     };
-    print(data);
     try {
-      final response = await http.post(Uri.parse(url), body: data);
+      final response = await http.post(
+        Uri.parse(url),
+        body: jsonEncode(data),
+      );
       debugPrint('Response ${response.statusCode}');
-      print(response.body);
-      print("signup ststuscode:${response.statusCode}");
-     final responseBody = jsonDecode(response.body);
-        saveToken(responseBody['token']);
+
+      final responseBody = jsonDecode(response.body);
       if (response.statusCode == 200) {
         SharedPreferences preferences = await SharedPreferences.getInstance();
         preferences.setBool('LOGIN', true);
-        final message = responseBody['message'];
-        print("message =${message}");
+        saveToken(responseBody['token']);
         return "Success";
-      }
-       else if(response.statusCode == 400) {
-        return "failed invalid fields or failed to register";
-      } else if(response.statusCode == 500) {
+      } else if (response.statusCode == 400) {
+        if (responseBody['message'] == "failed. invalid fields") {
+          return "failed. invalid fields";
+        } else if (responseBody['message'] == "failed to register") {
+          return "failed to register";
+        }
+        return '';
+      } else if (response.statusCode == 500) {
         return "failed to parse body";
-      }else{
+      } else {
         return '';
       }
     } catch (e) {
@@ -53,33 +55,34 @@ class ApiSellerAuthentication {
 
   //----------------------------------------------------------login----------------------------------------------------------//
 
- static Future<String> login(String email, String password) async {
+  static Future<String> login(String email, String password) async {
     try {
       const url =
           "${ApiEndPoints.baseUrl}${ApiEndPoints.seller}${ApiEndPoints.login}";
-      print(url);
       final data = {
         "email": email,
         "password": password,
       };
-      print(data);
       final response = await http.post(
         Uri.parse(url),
         body: data,
       );
-      print(response.body);
-      print(response.statusCode);
-      final body = jsonDecode(response.body);
-      saveToken(body['token']);
+      final responseBody = jsonDecode(response.body);
       if (response.statusCode == 200) {
         SharedPreferences preferences = await SharedPreferences.getInstance();
         preferences.setBool("LOGIN", true);
+        saveToken(responseBody['token']);
         return "success";
-      }else if(response.statusCode == 400){
-        return "failed invalid fields or failed to Login";
-      }else if(response.statusCode == 500){
+      } else if (response.statusCode == 400) {
+        if(responseBody['message'] == "failed. invalid fields"){
+          return "failed. invalid fields";
+        }else if(responseBody['message'] == "failed to Login"){
+          return "failed to Login";
+        }
+        return '';
+      } else if (response.statusCode == 500) {
         return "failed to parse body";
-      }else{
+      } else {
         return '';
       }
     } catch (e) {

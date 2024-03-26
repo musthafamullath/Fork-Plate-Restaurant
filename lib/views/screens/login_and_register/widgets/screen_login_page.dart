@@ -103,26 +103,23 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
                       BlocConsumer<LoginBloc, LoginState>(
                         listener: (context, state) {
                           if (state is SellerLoginSuccessState) {
-                            print("success state worked");
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
                               builder: (context) => ScreenMainPage(),
                             ));
                             showSnack(context, Colors.green,
                                 "successfully signed up");
-                          } else if (state
-                              is SellerLoginFailedInvalidFieldsOrFailedToLogin) {
-                            print(
+                          } else if (state is SellerLoginFailedInvalidFields) {
+                            showSnack(context, Colors.amber,
                                 "failed invalid fields or failed to register");
-                            showSnack(context, Colors.red,
+                          } else if (state is SellerLoginFailedToLogin) {
+                            showSnack(context, Colors.amber,
                                 "failed invalid fields or failed to register");
                           } else if (state
                               is SellerLoginFieldToParseBodyState) {
-                            print("failed to parse body");
                             showSnack(
-                                context, Colors.red, "failed to parse body");
+                                context, Colors.orange, "failed to parse body");
                           } else if (state is SellerLoginErrorState) {
-                            print("Error");
                             showSnack(context, Colors.red, "Error");
                           }
                         },

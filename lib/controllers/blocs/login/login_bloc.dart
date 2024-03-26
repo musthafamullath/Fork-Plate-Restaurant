@@ -13,16 +13,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   FutureOr<void> sellerLoginEvent(SellerLoginEvent event, Emitter<LoginState> emit) async{
     final result = await ApiSellerAuthentication.login(event.email,event.password);
     if(result == "success"){
-      print("success bloc worked");
+      
       emit(SellerLoginSuccessState());
-    }else if(result == "failed invalid fields or failed to Login"){
-      print("failed invalid fields or failed to Login");
-      emit(SellerLoginFailedInvalidFieldsOrFailedToLogin());
-    }else if(result == "failed to parse body"){
-      print("faild parse body");
+    }else if(result == "failed. invalid fields"){
+      
+      emit(SellerLoginFailedInvalidFields());
+    }else if(result == "failed to Login"){
+      emit(SellerLoginFailedToLogin());
+    }
+    else if(result == "failed to parse body"){
+      
       emit(SellerLoginFieldToParseBodyState());
     }else{
-      print("Error bloc");
+     
       emit(SellerLoginErrorState());
     }
   }

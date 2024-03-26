@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:foodie_fly_restaurant/controllers/api_end_points/api_end_points.dart';
 import 'package:foodie_fly_restaurant/controllers/api_tokens/tokens.dart';
@@ -20,7 +19,6 @@ class ProfileApiServices {
           },
         ),
       );
-      print(response.statusCode);
       if(response.statusCode == 200){
         final body = response.data as Map;
         final result = body['result'];

@@ -35,14 +35,14 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                 filterQuality: FilterQuality.high,
                 repeat: false,
                 reverse: true,
-                height: MediaQuery.of(context).size.height*3/10,
-                width: MediaQuery.of(context).size.width *10/10,
+                height: MediaQuery.of(context).size.height * 3 / 10,
+                width: MediaQuery.of(context).size.width * 10 / 10,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0,110,0,0),
+                padding: const EdgeInsets.fromLTRB(0, 110, 0, 0),
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 7/ 10,
-                  height: MediaQuery.of(context).size.height*3/10,
+                  width: MediaQuery.of(context).size.width * 7 / 10,
+                  height: MediaQuery.of(context).size.height * 3 / 10,
                   child: FadeInRight(
                     delay: const Duration(microseconds: 1500),
                     child: const Text(
@@ -58,23 +58,20 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       ),
     );
   }
-  Future<void> checkUserLogin(context)async{
+
+  Future<void> checkUserLogin(context) async {
     final preferences = await SharedPreferences.getInstance();
     final userLoggedIn = preferences.get('LOGIN');
-    if(userLoggedIn == null || userLoggedIn == false){
+    if (userLoggedIn == null || userLoggedIn == false) {
       await Future.delayed(const Duration(seconds: 3));
-      goToLoginPage(context);
-    }else{
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const ScreenLoginRestration(),
+      ));
+    } else {
       await Future.delayed(const Duration(seconds: 3));
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) =>  ScreenMainPage(),)
-      );
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => ScreenMainPage(),
+      ));
     }
-  }
-    Future<void>goToLoginPage(context)async{
-    await Future.delayed(const Duration(seconds: 3),);
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => const ScreenLoginRestration(),)
-    );
   }
 }
