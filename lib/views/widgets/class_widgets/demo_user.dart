@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import '../../../utils/text_styles.dart';
 
 class DemoUser extends StatelessWidget {
@@ -15,7 +16,7 @@ class DemoUser extends StatelessWidget {
           style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.grey,
+              color: grey,
               decoration: TextDecoration.underline),
         ),
         textSpanWidget(

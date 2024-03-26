@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import '../../../utils/text_styles.dart';
 
 class ButtonWidget extends StatelessWidget {
@@ -22,7 +23,7 @@ class ButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.orange.withBlue(300),
+          backgroundColor: orangePointWithblue,
           
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),

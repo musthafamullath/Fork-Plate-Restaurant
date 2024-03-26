@@ -63,8 +63,8 @@ class _ScreenHomeState extends State<ScreenHome> {
                             padding: const EdgeInsets.only(left: 10, right: 10),
                             child: FadeInUpBig(
                               child: Card(
-                                shadowColor: Colors.orange.withBlue(900),
-                                surfaceTintColor: Colors.orange.withBlue(900),
+                                shadowColor: orangePointWithblue,
+                                surfaceTintColor: orangePointWithblue,
                                 elevation: 5,
                                 child: Column(
                                   children: [
@@ -124,7 +124,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                             height: 20,
                             width: 20,
                             decoration: BoxDecoration(
-                              color: Colors.orange,
+                              color: orange,
                             ),
                             child: Column(
                               children: [

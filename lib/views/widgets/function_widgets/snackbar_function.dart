@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 
 showSnack(BuildContext context, Color color, String title) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -8,7 +9,7 @@ showSnack(BuildContext context, Color color, String title) {
         style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w900,
-          color: Colors.white,
+          color: white,
           letterSpacing: 1,
           wordSpacing: 1.3,
         ),

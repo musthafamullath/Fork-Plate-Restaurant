@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 
 
 class FloatingActionBTN extends StatelessWidget {
@@ -14,8 +15,8 @@ class FloatingActionBTN extends StatelessWidget {
   Widget build(BuildContext context) {
     return FadeInUpBig(
       child: FloatingActionButton(
-           splashColor: Colors.orange.withBlue(300),
-            backgroundColor: Colors.white,
+           splashColor: orangePointWithblue,
+            backgroundColor: white,
             
             onPressed:onPressed,
             child:  Column(

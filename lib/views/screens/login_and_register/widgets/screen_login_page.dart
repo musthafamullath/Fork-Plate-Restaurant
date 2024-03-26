@@ -4,7 +4,6 @@ import 'package:foodie_fly_restaurant/controllers/blocs/login/login_bloc.dart';
 import 'package:foodie_fly_restaurant/views/screens/main/screen_main_page.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/demo_user.dart';
 import 'package:foodie_fly_restaurant/views/widgets/function_widgets/toggle_password_function.dart';
-import 'package:lottie/lottie.dart';
 import '../../../../controllers/cubits/toggle_password/toggle_password_cubit.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/text_form_field_validators.dart';
@@ -34,8 +33,8 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
         child: Card(
           elevation: 5,
           margin: const EdgeInsets.all(20),
-          shadowColor: Colors.orange.withBlue(900),
-          surfaceTintColor: Colors.orange.withBlue(900),
+          shadowColor: orangePointWithblue,
+          surfaceTintColor: orangePointWithblue,
           child: Container(
             margin: const EdgeInsets.all(20),
             child: Column(
@@ -107,20 +106,20 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
                                 .pushReplacement(MaterialPageRoute(
                               builder: (context) => ScreenMainPage(),
                             ));
-                            showSnack(context, Colors.green,
+                            showSnack(context, green,
                                 "successfully signed up");
                           } else if (state is SellerLoginFailedInvalidFields) {
-                            showSnack(context, Colors.amber,
+                            showSnack(context, amber,
                                 "failed invalid fields or failed to register");
                           } else if (state is SellerLoginFailedToLogin) {
-                            showSnack(context, Colors.amber,
+                            showSnack(context, amber,
                                 "failed invalid fields or failed to register");
                           } else if (state
                               is SellerLoginFieldToParseBodyState) {
                             showSnack(
-                                context, Colors.orange, "failed to parse body");
+                                context, orange, "failed to parse body");
                           } else if (state is SellerLoginErrorState) {
-                            showSnack(context, Colors.red, "Error");
+                            showSnack(context,red, "Error");
                           }
                         },
                         builder: (context, state) {

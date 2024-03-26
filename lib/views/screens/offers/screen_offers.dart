@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget.dart';
 
 import '../../../utils/text_styles.dart';
@@ -13,7 +14,7 @@ class ScreenOffers extends StatelessWidget {
       child: AppBarWidget(title: "Offers")),
       body: Container(
         margin: const EdgeInsets.all(20),
-        color: Colors.red,
+        color: red,
         child: const Center(
           child: Text("ALL OFFERS",style: boldWhite,),
         ),

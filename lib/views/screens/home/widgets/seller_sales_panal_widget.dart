@@ -1,6 +1,7 @@
 
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 
 class SellerSalesPanalWidget extends StatelessWidget {
@@ -21,10 +22,10 @@ class SellerSalesPanalWidget extends StatelessWidget {
         height: width * 4 / 10,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.orange.withBlue(300),
+          color: orangePointWithblue,
           border: Border.all(
             width: 1.5,
-            color: Colors.orange.shade800,
+            color: orangePointShade800,
           ),
         ),
         child: Row(
@@ -35,18 +36,18 @@ class SellerSalesPanalWidget extends StatelessWidget {
                 width: width * 4 / 10,
                 height: 140 / 1,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: white,
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     width: 1,
-                    color: Colors.orange.shade800,
+                    color: orangePointShade800,
                   ),
                 ),
                 child: Card(
-                  margin: EdgeInsets.all(7),
+                  margin:const EdgeInsets.all(7),
                   elevation: 5,
-                  shadowColor: Colors.orange.withBlue(900),
-                  surfaceTintColor: Colors.orange.withBlue(900),
+                  shadowColor: orangePointWithblue,
+                  surfaceTintColor: orangePointWithblue,
                   child: Column(
                     children: [
                       Text(
@@ -54,7 +55,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.orange,
+                            decorationColor: orange,
                             decorationThickness: 2,
                             decorationStyle: TextDecorationStyle.dashed),
                       ),
@@ -66,7 +67,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('assets/icons/ordericon.png'),
-                            color: Colors.green,
+                            color: green,
                           ),
                           SizedBox(
                             width: 10,
@@ -90,7 +91,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('assets/icons/ordericon.png'),
-                            color: Colors.green,
+                            color: green,
                           ),
                           SizedBox(
                             width: 10,
@@ -117,18 +118,18 @@ class SellerSalesPanalWidget extends StatelessWidget {
                 width: width * 4 / 10,
                 height: 140 / 1,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: white,
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
                     width: 1.5,
-                    color: Colors.orange.shade800,
+                    color: orangePointShade800,
                   ),
                 ),
                 child: Card(
                   margin: EdgeInsets.all(7),
                   elevation: 5,
-                  shadowColor: Colors.orange.withBlue(900),
-                  surfaceTintColor: Colors.orange.withBlue(900),
+                  shadowColor: orangePointWithblue,
+                  surfaceTintColor: orangePointWithblue,
                   child: Column(
                     children: [
                       Text(
@@ -136,7 +137,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline,
-                            decorationColor: Colors.orange,
+                            decorationColor: orange,
                             decorationThickness: 2,
                             decorationStyle: TextDecorationStyle.dashed),
                       ),
@@ -148,7 +149,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('assets/icons/revenueicon.png'),
-                            color: Colors.green,
+                            color: green,
                           ),
                           SizedBox(
                             width: 10,
@@ -172,7 +173,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                         children: <Widget>[
                           ImageIcon(
                             AssetImage('assets/icons/revenueicon.png'),
-                            color: Colors.green,
+                            color: green,
                           ),
                           SizedBox(
                             width: 10,

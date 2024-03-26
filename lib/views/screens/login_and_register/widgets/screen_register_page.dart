@@ -44,8 +44,8 @@ class _ScreenRegisterPageState extends State<ScreenRegisterPage> {
         child: Card(
           elevation: 5,
           margin: const EdgeInsets.all(20),
-          shadowColor: Colors.orange.withBlue(900),
-          surfaceTintColor: Colors.orange.withBlue(900),
+          shadowColor: orangePointWithblue,
+          surfaceTintColor: orangePointWithblue,
           child: Container(
             margin: const EdgeInsets.all(20),
             child: Column(
@@ -178,20 +178,20 @@ class _ScreenRegisterPageState extends State<ScreenRegisterPage> {
                                 .pushReplacement(MaterialPageRoute(
                               builder: (context) => ScreenMainPage(),
                             ));
-                            showSnack(context, Colors.green,
+                            showSnack(context, green,
                                 "successfully signed up");
                           } else if (state
                               is SellerRegistrationFailedInvalidfields) {
                             showSnack(
-                                context, Colors.amber, "failed. invalid fields");
+                                context, amber, "failed. invalid fields");
                           } else if (state is SellerRegistrationFailedToLogin) {
-                            showSnack(context, Colors.amber, "failed to Login");
+                            showSnack(context, amber, "failed to Login");
                           } else if (state
                               is SellerRegistrationFieldToParseBodyState) {
                             showSnack(
-                                context, Colors.orange, "failed to parse body");
+                                context, orange, "failed to parse body");
                           } else if (state is SellerRegistrationErrorState) {
-                            showSnack(context, Colors.red, "Error");
+                            showSnack(context, red, "Error");
                           }
                         },
                         builder: (context, state) {

@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/login_and_register/widgets/screen_login_page.dart';
 import 'package:foodie_fly_restaurant/views/screens/login_and_register/widgets/screen_register_page.dart';
 
@@ -18,7 +19,7 @@ class ScreenLoginRestration extends StatelessWidget {
               Size.fromHeight(MediaQuery.of(context).size.height * 1.4 / 10),
           child: FadeInUpBig(
             child: AppBar(
-              backgroundColor: Colors.orange.withBlue(300),
+              backgroundColor: orangePointWithblue,
               title: const Text(
                 "Foodie Fly Restaurent",
                 style: TextStyle(
@@ -29,10 +30,10 @@ class ScreenLoginRestration extends StatelessWidget {
               ),
               centerTitle: true,
               bottom: const TabBar(
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.black,
+                labelColor: white,
+                unselectedLabelColor:black,
                 indicatorWeight: 7.5,
-                indicatorColor: Colors.white,
+                indicatorColor: white,
                 indicatorPadding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                 indicatorSize: TabBarIndicatorSize.label,
                 tabs: <Widget>[

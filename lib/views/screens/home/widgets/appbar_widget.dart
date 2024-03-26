@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/profile/profile_bloc.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import '../../../../utils/text_styles.dart';
 
 class HomeAppBarWidget extends StatelessWidget {
@@ -20,12 +21,12 @@ class HomeAppBarWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: BorderDirectional(
           bottom: BorderSide(
-            color: Colors.orange.shade800,
+            color: orangePointShade800,
             width: 10,
           ),
         ),
         backgroundBlendMode: BlendMode.srcATop,
-        color: Colors.orange.withBlue(300),
+        color: orangePointWithblue,
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(35),
           bottomRight: Radius.circular(35),

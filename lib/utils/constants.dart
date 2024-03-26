@@ -15,3 +15,11 @@ const divider2 = Divider(thickness: 2, color: Colors.grey);
 const divider5 = Divider(thickness: 5, color: Colors.black);
 
 const Color orange = Colors.orange;
+final Color orangePointWithblue = Colors.orange.withBlue(300);
+final Color orangePointShade800 = Colors.orange.shade800;
+const Color red = Colors.red;
+const Color amber = Colors.amber;
+const Color green = Colors.green;
+const Color white = Colors.white;
+const Color black = Colors.black;
+const Color grey = Colors.grey;

@@ -32,12 +32,12 @@ class ScreenProfile extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Colors.orange.withBlue(300),
+                        color: orangePointWithblue,
                       ),
                       width: size * 10 / 10,
                       child: Card(
-                        shadowColor: Colors.orange.withBlue(900),
-                        surfaceTintColor: Colors.orange.withBlue(900),
+                        shadowColor: orangePointWithblue,
+                        surfaceTintColor: orangePointWithblue,
                         borderOnForeground: false,
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),

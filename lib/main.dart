@@ -5,6 +5,7 @@ import 'package:foodie_fly_restaurant/controllers/blocs/profile/profile_bloc.dar
 import 'package:foodie_fly_restaurant/controllers/blocs/singup/signup_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/cubits/toggle_password/toggle_password_cubit.dart';
 import 'package:foodie_fly_restaurant/controllers/cubits/toggle_repassword/toggle_repassword_cubit.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/splash/screen_splash_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Foodie Fly Restaurant',
         theme: ThemeData(
-          primaryColor: Colors.orange.withBlue(300),
+          primaryColor: orangePointWithblue,
           primarySwatch: Colors.orange,
           useMaterial3: true,
           fontFamily: 'K2D',

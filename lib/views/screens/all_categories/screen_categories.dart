@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 
 class ScreenCategories extends StatelessWidget {
@@ -8,7 +9,7 @@ class ScreenCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.amber,
+        color: amber,
         margin:const EdgeInsets.all(20),
         child: const Center(
           child: Text("ALL CATEGORIES",style: boldWhite,),

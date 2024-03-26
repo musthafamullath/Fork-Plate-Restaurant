@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({super.key, required this.title});
@@ -8,10 +9,10 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.orange.withBlue(300),
+          color: orangePointWithblue,
           border: BorderDirectional(
             bottom: BorderSide(
-              color: Colors.orange.shade800,
+              color: orangePointShade800,
               width: 10,
             ),
           ),
@@ -27,7 +28,7 @@ class AppBarWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                   fontSize: 26,
-                  color: Colors.black,
+                  color: black,
                 )),
           ),
         ),

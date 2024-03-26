@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/orders/widgets/tabbar_custom_widget.dart';
 
 class ScreenOrders extends StatelessWidget {
@@ -15,50 +16,50 @@ class ScreenOrders extends StatelessWidget {
         body: TabBarView(children: [
           Container(
             margin: EdgeInsets.all(20),
-            color: Colors.amber,
+            color: amber,
             child: Center(
                 child: Text(
               "Orders",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  color:white),
             )),
           ),
           Container(
             margin: EdgeInsets.all(20),
-            color: Colors.red,
+            color: red,
             child: Center(
                 child: Text(
               "Cooking",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  color: white),
             )),
           ),
           Container(
             margin: EdgeInsets.all(20),
-            color: Colors.blue,
+            color: black,
             child: Center(
                 child: Text(
               "Ready",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  color: white),
             )),
           ),
           Container(
             margin: EdgeInsets.all(20),
-            color: Colors.green,
+            color: green,
             child: Center(
                 child: Text(
               "Delivered",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  color: white),
             )),
           ),
         ]),

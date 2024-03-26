@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import '../../../controllers/cubits/toggle_password/toggle_password_cubit.dart';
 
 
@@ -13,11 +14,11 @@ Widget togglePassword() {
           icon: state
               ? const Icon(
                   Icons.visibility,
-                  color: Colors.grey,
+                  color:grey,
                 )
               : const Icon(
                   Icons.visibility_off,
-                  color: Colors.grey,
+                  color: grey,
                 ),
         );
       },
