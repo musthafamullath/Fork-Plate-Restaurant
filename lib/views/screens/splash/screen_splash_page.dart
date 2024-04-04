@@ -26,7 +26,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       body:const SplashComponeses(),
     );
   }
-
+  
   Future<void> checkUserLogin(context) async {
     final preferences = await SharedPreferences.getInstance();
     final userLoggedIn = preferences.get('LOGIN');

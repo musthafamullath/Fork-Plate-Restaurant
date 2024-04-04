@@ -10,3 +10,22 @@ Future<String> getToken() async {
   final String? bearer = preferences.getString('token');
   return bearer!;
 }
+
+saveSellerId(int sellerId)async{
+  final SharedPreferences preferences = await SharedPreferences.getInstance();
+  await preferences.setInt("sellerId", sellerId);
+}
+getSellerId()async{
+  final SharedPreferences preferences = await SharedPreferences.getInstance();
+  final sellerId = preferences.getInt("sellerId" );
+  return sellerId;
+}
+saveDishId(int dishId)async{
+  final SharedPreferences preferences = await SharedPreferences.getInstance();
+  await preferences.setInt("dishId", dishId);
+}
+getDishId()async{
+  final SharedPreferences preferences = await SharedPreferences.getInstance();
+  final sellerId = preferences.getInt("dishId" );
+  return sellerId;
+}

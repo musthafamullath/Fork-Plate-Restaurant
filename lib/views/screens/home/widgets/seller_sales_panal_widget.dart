@@ -1,6 +1,8 @@
-
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/SellerSalesPanalTotel/seller_sales_panaltotel_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/SellerSalesPanaldaily/seller_sales_panal_bloc.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 
@@ -14,6 +16,8 @@ class SellerSalesPanalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // context.read<SalesReportBloc>().add(GetDailySalesReportEvent());
+    // context.read<SellerSalesPanaltotelBloc>().add(GetTotelSalesReportEvent());
     return Positioned(
       top: 100,
       left: 20,
@@ -44,7 +48,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                   ),
                 ),
                 child: Card(
-                  margin:const EdgeInsets.all(7),
+                  margin: const EdgeInsets.all(7),
                   elevation: 5,
                   shadowColor: orangePointWithblue,
                   surfaceTintColor: orangePointWithblue,
@@ -73,9 +77,11 @@ class SellerSalesPanalWidget extends StatelessWidget {
                             width: 10,
                           ),
                           Text.rich(TextSpan(children: <TextSpan>[
+                            TextSpan(text: 'Today: ', style: semiBoldBlack),
                             TextSpan(
-                                text: 'Today: ', style: semiBoldBlack),
-                            TextSpan(text: '0', style: boldOrange),
+                                // text: '${state.report?.todayOrder}',
+                                text: '0',
+                                style: boldOrange),
                           ])),
                         ],
                       ),
@@ -100,9 +106,11 @@ class SellerSalesPanalWidget extends StatelessWidget {
                             TextSpan(
                               children: <TextSpan>[
                                 TextSpan(
-                                    text: 'Total: ',
-                                    style: semiBoldBlack),
-                                TextSpan(text: '0', style: boldOrange),
+                                    text: 'Total: ', style: semiBoldBlack),
+                                TextSpan(
+                                    // text: '${state.report?.totelOrder}',
+                                    text: '0',
+                                    style: boldOrange),
                               ],
                             ),
                           ),
@@ -126,7 +134,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                   ),
                 ),
                 child: Card(
-                  margin: EdgeInsets.all(7),
+                  margin: const EdgeInsets.all(7),
                   elevation: 5,
                   shadowColor: orangePointWithblue,
                   surfaceTintColor: orangePointWithblue,
@@ -155,8 +163,8 @@ class SellerSalesPanalWidget extends StatelessWidget {
                             width: 10,
                           ),
                           Text.rich(TextSpan(children: <TextSpan>[
-                            TextSpan(
-                                text: 'Today: ', style: semiBoldBlack),
+                            TextSpan(text: 'Today: ', style: semiBoldBlack),
+                            // TextSpan(text: '${state.report?.todayRevenue}', style: boldOrange),
                             TextSpan(text: '0', style: boldOrange),
                           ])),
                         ],
@@ -179,8 +187,8 @@ class SellerSalesPanalWidget extends StatelessWidget {
                             width: 10,
                           ),
                           Text.rich(TextSpan(children: <TextSpan>[
-                            TextSpan(
-                                text: 'Total: ', style: semiBoldBlack),
+                            TextSpan(text: 'Total: ', style: semiBoldBlack),
+                            // TextSpan(text: '${state.report?.totelReverue}', style: boldOrange),
                             TextSpan(text: '0', style: boldOrange),
                           ])),
                         ],

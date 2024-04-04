@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/text_styles.dart';
 
-
 class ViewAllwidget extends StatelessWidget {
   const ViewAllwidget({
-    super.key, required this.text, required this.buttonName,required this.onTap,
+    super.key,
+    required this.text,
+    required this.buttonName,
+    required this.onTap,
   });
   final String text;
   final String buttonName;
@@ -17,11 +19,11 @@ class ViewAllwidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-         Text(
+        Text(
           text,
           style: boldBlack,
         ),
-       InkWell(
+        InkWell(
             onTap: onTap,
             child: Text(
               buttonName,

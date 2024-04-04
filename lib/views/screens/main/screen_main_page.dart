@@ -4,7 +4,7 @@ import 'package:foodie_fly_restaurant/controllers/blocs/bottom_navigation/bottom
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/home/screen_home.dart';
 import 'package:foodie_fly_restaurant/views/screens/main/widgets/salomonbottombaritem.dart';
-import 'package:foodie_fly_restaurant/views/screens/offers/screen_offers.dart';
+import 'package:foodie_fly_restaurant/views/screens/offer/screen_offer.dart';
 import 'package:foodie_fly_restaurant/views/screens/orders/screen_orders.dart';
 import 'package:foodie_fly_restaurant/views/screens/profile/screen_profile.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -13,7 +13,7 @@ class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({super.key});
   final List screens = [
     const ScreenHome(),
-    const ScreenOffers(),
+    ScreenOffers(),
     const ScreenOrders(),
     const ScreenProfile(),
   ];

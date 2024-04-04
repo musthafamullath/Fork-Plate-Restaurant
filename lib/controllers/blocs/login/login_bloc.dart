@@ -11,10 +11,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<SellerLoginEvent>(sellerLoginEvent);
   }
   FutureOr<void> sellerLoginEvent(SellerLoginEvent event, Emitter<LoginState> emit) async{
-    final result = await ApiSellerAuthentication.login(event.email,event.password);
+    final result = await ApiSellerAuthentication().login(event.email,event.password);
     if(result == "success"){
       
-      emit(SellerLoginSuccessState());
+      emit(SellerLoginSuccessState());  
     }else if(result == "failed. invalid fields"){
       
       emit(SellerLoginFailedInvalidFields());

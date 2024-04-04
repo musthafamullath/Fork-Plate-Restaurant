@@ -28,7 +28,7 @@ class AppBarWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1,
                   fontSize: 26,
-                  color: black,
+                  color: white,
                 )),
           ),
         ),

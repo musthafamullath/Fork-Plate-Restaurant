@@ -44,7 +44,7 @@ class HomeAppBarWidget extends StatelessWidget {
                       children: <TextSpan>[
                         const TextSpan(
                           text: 'Hello, Welome  ',
-                          style: bigBoldBlack,
+                          style: bigBoldWhite,
                         ),
                         TextSpan(
                           text: state.profile?.name ??
@@ -53,7 +53,7 @@ class HomeAppBarWidget extends StatelessWidget {
                         ),
                         const TextSpan(
                           text: " . . .",
-                          style: bigBoldBlack,
+                          style: bigBoldWhite,
                         ),
                       ],
                     ),

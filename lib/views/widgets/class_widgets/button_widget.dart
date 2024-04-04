@@ -29,7 +29,7 @@ class ButtonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           )
         ),
-        child: Text(text,style: semiBoldBlack,),
+        child: Text(text,style: semiBoldWhite,),
       ),
     );
   }

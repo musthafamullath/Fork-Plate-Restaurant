@@ -13,9 +13,9 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   }
 
   FutureOr<void> sellerSignupEvent(
-      SellerSignupEvent event, Emitter<SignupState> emit) async {
+SellerSignupEvent event, Emitter<SignupState> emit) async {
     final result =
-        await ApiSellerAuthentication.register(event.restaurantRegisteration);
+        await ApiSellerAuthentication().register(event.restaurantRegisteration);
     if (result == "Success") {
       emit(SellerRegistrationSuccessState());
     } else if (result == "failed. invalid fields") {

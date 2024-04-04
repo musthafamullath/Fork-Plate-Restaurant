@@ -5,7 +5,7 @@ import 'package:foodie_fly_restaurant/controllers/api_tokens/tokens.dart';
 import '../../../models/profile.dart';
 
 class ProfileApiServices {
-  Dio dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
+  final Dio dio = Dio(BaseOptions(baseUrl: ApiEndPoints.baseUrl));
   Future<Profile?> getSellerProfile() async {
     try {
       final token = await getToken();
@@ -13,16 +13,21 @@ class ProfileApiServices {
         ApiEndPoints.getSellerProfile,
         options: Options(
           headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Bearer $token',
-          },
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
         ),
+        
       );
-      if(response.statusCode == 200){
+
+      if (response.statusCode == 200) {
         final body = response.data as Map;
+
         final result = body['result'];
         final profile = Profile.fromJson(result);
+
+        await saveSellerId(profile.sellerId);
         return profile;
       }
     } catch (e) {

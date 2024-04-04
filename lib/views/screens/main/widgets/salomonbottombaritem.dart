@@ -15,5 +15,6 @@ SalomonBottomBarItem salomonbottombaritem(ImageIcon imageIcon,String  text,) {
         ),
       )),
       selectedColor: white,
+      unselectedColor: white,
     );
   }

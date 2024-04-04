@@ -2,11 +2,13 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/profile/profile_bloc.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 import 'package:foodie_fly_restaurant/views/screens/add_dishes/screen_add_dishes.dart';
 import 'package:foodie_fly_restaurant/views/screens/all_categories/screen_categories.dart';
+import 'package:foodie_fly_restaurant/views/screens/category/screen_categories.dart';
 import 'package:foodie_fly_restaurant/views/screens/home/widgets/appbar_widget.dart';
 import 'package:foodie_fly_restaurant/views/screens/home/widgets/seller_sales_panal_widget.dart';
 import 'package:foodie_fly_restaurant/views/screens/home/widgets/viewall_widget.dart';
@@ -26,6 +28,7 @@ class _ScreenHomeState extends State<ScreenHome> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     context.read<ProfileBloc>().add(GetProfileEvent());
+    context.read<CategoryBloc>().add(CategoryEvent());
     return Scaffold(
       body: Stack(
         children: [
@@ -103,59 +106,38 @@ class _ScreenHomeState extends State<ScreenHome> {
                         buttonName: "View All",
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const ScreenCategories(),
+                            builder: (context) => const ScreenAllCategories(),
                           ));
                         },
                       ),
                     ),
                     kHight20,
-                    FadeInDownBig(
-                      child: GridView.builder(
-                        itemCount: 6,
-                        shrinkWrap: true,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3),
-                        itemBuilder: (context, index) {
-                          return Container(
-                            alignment: Alignment.center,
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                              color: orange,
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(height: 10,),
-                                Text('hhhhhh'),
-                                const Spacer(),
-                                Text('kkkkddd'),
-                                 SizedBox(height: 10,),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+                    const HomeCategoryGridviews(),
                     kHight50,
                     kHight20,
                   ],
                 ),
               ),
-              floatingActionButton: FloatingActionBTN(
-                string: 'Add Dish',
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ScreenAddDishes(),
-                    ),
-                  );
-                }, icon: Icons.add
-              )),
+            ),
           SellerSalesPanalWidget(width: width),
         ],
+      ),
+          floatingActionButton: BlocBuilder<CategoryBloc, CategoryState>(
+        builder: (context, state) {
+          return FloatingActionBTN(
+              string: 'Add Dish',
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ScreenAddDishes(
+                      categories: state.categories,
+                      operatior: Operatior.add,
+                    ),
+                  ),
+                );
+              },
+              icon: Icons.add);
+        },
       ),
     );
   }

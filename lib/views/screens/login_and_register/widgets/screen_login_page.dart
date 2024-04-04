@@ -110,10 +110,10 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
                                 "successfully signed up");
                           } else if (state is SellerLoginFailedInvalidFields) {
                             showSnack(context, amber,
-                                "failed invalid fields or failed to register");
+                                "failed invalid fields");
                           } else if (state is SellerLoginFailedToLogin) {
                             showSnack(context, amber,
-                                "failed invalid fields or failed to register");
+                                "failed to register");
                           } else if (state
                               is SellerLoginFieldToParseBodyState) {
                             showSnack(
