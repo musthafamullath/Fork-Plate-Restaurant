@@ -1,9 +1,7 @@
 class ApiEndPoints {
   static const String baseUrl = 'http://10.0.2.2:8989';
-  // static const String seller = '/seller';
-  // static const String register = '/register';
   static const String sellerRegister = '/seller/register';
-  static const String SellerLogin = '/seller/login';
+  static const String sellerLogin = '/seller/login';
   static const getSellerProfile = '/seller/profile';
   static const addDish = '/seller/addDish';
   static const dailyStatus = '/seller/sales?filter=daily';

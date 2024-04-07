@@ -1,31 +1,15 @@
 part of 'offer_bloc.dart';
 
 class OfferState {
-   final List<OfferGet> offers;
-
+  final List<Offer> offers;
   OfferState({required this.offers});
-
-  
 }
 
 final class OfferInitial extends OfferState {
-  OfferInitial():super(offers: []);
-}
-
-//getoffer
-final class GetOfferSuccessState extends OfferState {
-  GetOfferSuccessState({required List<OfferGet> offers}):super(offers: []);
- 
+  OfferInitial() : super(offers: []);
 }
 
 
-final class GetOfferFieldState extends OfferState {
-  GetOfferFieldState({required super.offers});
-}
-
-final class GetOfferErrorState extends OfferState {
-  GetOfferErrorState({required super.offers});
-}
 
 //addoffer
 final class AddOfferSuccessState extends OfferState {
@@ -62,4 +46,24 @@ final class AddOfferErrorOccuredWhileCreatingOffer extends OfferState {
 
 final class AddOfferErrorState extends OfferState {
   AddOfferErrorState({required super.offers});
+}
+//edit offer
+final class UpdateOfferSuccessState extends OfferState {
+ 
+
+  UpdateOfferSuccessState( {required super.offers});
+ 
+}
+final class UpdateOfferErrorState extends OfferState {
+  
+
+  UpdateOfferErrorState( {required super.offers});
+ 
+}
+final class GetOfferByCategoryState extends OfferState {
+ 
+
+  GetOfferByCategoryState( {required super.offers});
+
+ 
 }

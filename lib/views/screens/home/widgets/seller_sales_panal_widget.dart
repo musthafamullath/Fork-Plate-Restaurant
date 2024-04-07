@@ -1,8 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie_fly_restaurant/controllers/blocs/SellerSalesPanalTotel/seller_sales_panaltotel_bloc.dart';
-import 'package:foodie_fly_restaurant/controllers/blocs/SellerSalesPanaldaily/seller_sales_panal_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/salesdaily/seller_sales_panal_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/salestotel/seller_sales_panaltotel_bloc.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 
@@ -16,8 +16,8 @@ class SellerSalesPanalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // context.read<SalesReportBloc>().add(GetDailySalesReportEvent());
-    // context.read<SellerSalesPanaltotelBloc>().add(GetTotelSalesReportEvent());
+    context.read<SalesDailyBloc>().add(GetSalesDailyEvent());
+    context.read<SalesTotelBloc>().add(GetSalesTotelEvent());
     return Positioned(
       top: 100,
       left: 20,
@@ -54,7 +54,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                   surfaceTintColor: orangePointWithblue,
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         "Orders",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -63,56 +63,67 @@ class SellerSalesPanalWidget extends StatelessWidget {
                             decorationThickness: 2,
                             decorationStyle: TextDecorationStyle.dashed),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          ImageIcon(
+                          const ImageIcon(
                             AssetImage('assets/icons/ordericon.png'),
                             color: green,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          Text.rich(TextSpan(children: <TextSpan>[
-                            TextSpan(text: 'Today: ', style: semiBoldBlack),
-                            TextSpan(
-                                // text: '${state.report?.todayOrder}',
-                                text: '0',
-                                style: boldOrange),
-                          ])),
+                          BlocBuilder<SalesDailyBloc, SalesDailyState>(
+                            builder: (context, state) {
+                              return Text.rich(
+                                TextSpan(
+                                  children: <TextSpan>[
+                                    const TextSpan(
+                                        text: 'Today: ', style: semiBoldBlack),
+                                    TextSpan(
+                                      text: '${state.report?.todayOrder}',
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Divider(),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          ImageIcon(
+                          const ImageIcon(
                             AssetImage('assets/icons/ordericon.png'),
                             color: green,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          Text.rich(
-                            TextSpan(
-                              children: <TextSpan>[
+                          BlocBuilder<SalesTotelBloc, SalesTotelState>(
+                            builder: (context, state) {
+                              return Text.rich(
                                 TextSpan(
-                                    text: 'Total: ', style: semiBoldBlack),
-                                TextSpan(
-                                    // text: '${state.report?.totelOrder}',
-                                    text: '0',
-                                    style: boldOrange),
-                              ],
-                            ),
+                                  children: <TextSpan>[
+                                    const TextSpan(
+                                        text: 'Total: ', style: semiBoldBlack),
+                                    TextSpan(
+                                      text: '${state.report?.totelOrder}',
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -140,7 +151,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
                   surfaceTintColor: orangePointWithblue,
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         "Revenue",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -149,48 +160,71 @@ class SellerSalesPanalWidget extends StatelessWidget {
                             decorationThickness: 2,
                             decorationStyle: TextDecorationStyle.dashed),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          ImageIcon(
+                          const ImageIcon(
                             AssetImage('assets/icons/revenueicon.png'),
                             color: green,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          Text.rich(TextSpan(children: <TextSpan>[
-                            TextSpan(text: 'Today: ', style: semiBoldBlack),
-                            // TextSpan(text: '${state.report?.todayRevenue}', style: boldOrange),
-                            TextSpan(text: '0', style: boldOrange),
-                          ])),
+                          BlocBuilder<SalesDailyBloc, SalesDailyState>(
+                            builder: (context, state) {
+                              return Text.rich(
+                                TextSpan(
+                                  children: <TextSpan>[
+                                    const TextSpan(
+                                      text: 'Today: ',
+                                      style: semiBoldBlack,
+                                    ),
+                                    TextSpan(
+                                      text: '${state.report?.todayRevenue}',
+                                      style: boldOrange,
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: Divider(),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          ImageIcon(
+                          const ImageIcon(
                             AssetImage('assets/icons/revenueicon.png'),
                             color: green,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          Text.rich(TextSpan(children: <TextSpan>[
-                            TextSpan(text: 'Total: ', style: semiBoldBlack),
-                            // TextSpan(text: '${state.report?.totelReverue}', style: boldOrange),
-                            TextSpan(text: '0', style: boldOrange),
-                          ])),
+                          BlocBuilder<SalesTotelBloc, SalesTotelState>(
+                            builder: (context, state) {
+                              return Text.rich(
+                                TextSpan(
+                                  children: <TextSpan>[
+                                    const TextSpan(
+                                        text: 'Total: ', style: semiBoldBlack),
+                                    TextSpan(
+                                        text: '${state.report?.totelReverue}',
+                                        style: boldOrange),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                     ],

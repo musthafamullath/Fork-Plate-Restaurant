@@ -37,6 +37,7 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
                     onPressed: () async {
                       XFile imagePath = await fromCamera();
                       completer.complete(imagePath);
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                     },
                     icon: const Icon(
@@ -54,6 +55,7 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
                       XFile imagePath = await fromGallery();
                       completer.complete(imagePath);
 
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                     },
                     icon: const Icon(

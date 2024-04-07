@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/controllers/api_end_points/api_end_points.dart';
 import 'package:foodie_fly_restaurant/models/restaurant.dart';
 import 'package:foodie_fly_restaurant/controllers/api_tokens/tokens.dart';
-import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,7 +20,7 @@ class ApiSellerAuthentication {
       "description": restaurantRegisteration.description,
       "pinCode": restaurantRegisteration.pinCode,
     };
-    print(data);
+    // print(data);
     try {
       final response = await dio.post(
         ApiEndPoints.sellerRegister,
@@ -34,10 +33,10 @@ class ApiSellerAuthentication {
         data: jsonEncode(data),
       );
       debugPrint('Response ${response.statusCode}');
-      print(response);
+      // print(response);
 
-      final responseBody = response.data as Map;
-      print(responseBody);
+      final responseBody = response.data ;
+      // print(responseBody);
       if (response.statusCode == 200) {
         SharedPreferences preferences = await SharedPreferences.getInstance();
         preferences.setBool('LOGIN', true);
@@ -70,19 +69,22 @@ class ApiSellerAuthentication {
         "email": email,
         "password": password,
       };
+      // print('😍${data}');
 
       final response = await dio.post(
-        ApiEndPoints.SellerLogin,
+        ApiEndPoints.sellerLogin,
         data: data,
       );
+      // print('🤝${response.statusCode}');
+      // print('😊${response.data}');
 
-      final responseBody = jsonDecode(response.data)as Map;
+      final responseBody = response.data;
 
       if (response.statusCode == 200) {
         SharedPreferences preferences = await SharedPreferences.getInstance();
         preferences.setBool("LOGIN", true);
         saveToken(responseBody['token']);
-
+        // print('🎉${response}');
         return "success";
       } else if (response.statusCode == 400) {
         if (responseBody['message'] == "failed. invalid fields") {
@@ -98,7 +100,7 @@ class ApiSellerAuthentication {
       }
     } catch (e) {
       log(e.toString());
-      print('------');
+      // print('------');
       return '';
     }
   }

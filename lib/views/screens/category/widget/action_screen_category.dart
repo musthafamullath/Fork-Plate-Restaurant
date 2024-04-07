@@ -7,13 +7,13 @@ import 'package:foodie_fly_restaurant/models/category.dart';
 import 'package:foodie_fly_restaurant/models/dish.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
+import 'package:foodie_fly_restaurant/views/screens/dish/screen_dish.dart';
 import 'package:foodie_fly_restaurant/views/screens/category/widget/dish_circle_avatar.dart';
 import 'package:foodie_fly_restaurant/views/screens/category/widget/dish_trailling.dart';
-import 'package:foodie_fly_restaurant/views/screens/dish/screen_dish.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget.dart';
 
 class ActionScreenCategory extends StatelessWidget {
-  ActionScreenCategory({
+  const ActionScreenCategory({
     super.key,
     required this.category,
   });
@@ -26,11 +26,11 @@ class ActionScreenCategory extends StatelessWidget {
     context.read<CategoryBloc>().add(CategoryEvent());
     context
         .read<DishBloc>()
-        .add(GetDishesByCategoryEvent(categoryId: category.id));
+        .add(GetDishesByCategoryEvent(categoryId: category.id!));
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(70),
-        child: AppBarWidget(title: category.name),
+        child: AppBarWidget(title: category.name!),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),

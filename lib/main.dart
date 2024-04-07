@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_fly_restaurant/controllers/blocs/SellerSalesPanalTotel/seller_sales_panaltotel_bloc.dart';
-import 'package:foodie_fly_restaurant/controllers/blocs/SellerSalesPanaldaily/seller_sales_panal_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/bottom_navigation/bottom_navigation_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/dish/dish_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/login/login_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/offer/offer_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/profile/profile_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/salesdaily/seller_sales_panal_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/salestotel/seller_sales_panaltotel_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/singup/signup_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/cubits/toggle_password/toggle_password_cubit.dart';
 import 'package:foodie_fly_restaurant/controllers/cubits/toggle_repassword/toggle_repassword_cubit.dart';
@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ToggleRepasswordCubit(),),
         BlocProvider(create: (context) => CategoryBloc(),),
         BlocProvider(create: (context) => DishBloc(),),
-        BlocProvider(create: (context) => OfferBloc(),)
+        BlocProvider(create: (context) => OfferBloc(),),
+        BlocProvider(create: (context) => SalesDailyBloc(),),
+        BlocProvider(create: (context) => SalesTotelBloc(),)
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

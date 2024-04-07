@@ -10,7 +10,6 @@ class PickImageBottomSheet extends StatefulWidget {
 
 
 class _PickImageBottomSheetState extends State<PickImageBottomSheet> {
-  String? _profilePicturePath;
   XFile? image;
   @override
   Widget build(BuildContext context) {
@@ -49,7 +48,7 @@ class _PickImageBottomSheetState extends State<PickImageBottomSheet> {
                       setState(() {
                         image = img;
                       });
-                      _profilePicturePath = image!.path;
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                     },
                     icon: const Icon(
@@ -66,7 +65,7 @@ class _PickImageBottomSheetState extends State<PickImageBottomSheet> {
                       setState(() {
                         image = img;
                       });
-                      _profilePicturePath = image!.path;
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                     },
                     icon: const Icon(

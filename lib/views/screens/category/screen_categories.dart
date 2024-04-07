@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/category/widget/action_screen_category.dart';
 
@@ -13,7 +12,7 @@ class HomeCategoryGridviews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widthSize = MediaQuery.of(context).size.width;
+    
     final heightSize = MediaQuery.of(context).size.height;
     context.read<CategoryBloc>().add(CategoryEvent());
     return FadeInDownBig(
@@ -52,12 +51,12 @@ class HomeCategoryGridviews extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.network(
-                        index < 6 ? state.categories[index ].iconUrl : '',
+                        index < 6 ? state.categories[index ].iconUrl! : '',
                         height: heightSize * 1.1 / 10,
                       ),
                       
                       Text(
-                        index < 6 ? state.categories[index ].name : '',
+                        index < 6 ? state.categories[index ].name! : '',
                         style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold,color:black),
                       )

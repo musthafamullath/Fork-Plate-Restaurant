@@ -11,9 +11,10 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({super.key});
+  
   final List screens = [
     const ScreenHome(),
-    ScreenOffers(),
+    const ScreenOffers(),
     const ScreenOrders(),
     const ScreenProfile(),
   ];

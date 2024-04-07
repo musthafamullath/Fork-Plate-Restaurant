@@ -24,9 +24,9 @@ class TabBarWidgetCustom extends StatelessWidget {
               bottomRight: Radius.circular(12))),
       child: AppBar(
         backgroundColor: Colors.orange.withBlue(300),
-        title: FadeInDownBig(child: Text('Orders', style: bigBoldWhite)),
+        title: FadeInDownBig(child: const Text('Orders', style: bigBoldWhite)),
         centerTitle: true,
-        bottom: TabBar(
+        bottom: const TabBar(
           labelColor: Colors.white,
           unselectedLabelColor: Colors.white,
           indicatorWeight: 5,
@@ -34,7 +34,7 @@ class TabBarWidgetCustom extends StatelessWidget {
           indicatorSize: TabBarIndicatorSize.label,
           tabs: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: TabBarWidget(
                 text: 'Orders',
               ),

@@ -13,7 +13,7 @@ class SectionHead extends StatelessWidget {
       TextSpan(
         children: [
           TextSpan(text: heading,style: boldBlack),
-          TextSpan(text: values ,style: boldOrangeGrey,),
+          TextSpan(text: values ,style: boldOrange,),
         ]
       )
     );

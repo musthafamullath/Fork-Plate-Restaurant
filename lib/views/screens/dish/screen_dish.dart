@@ -6,7 +6,7 @@ import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/section_head.dart';
 
 class ScreenDish extends StatelessWidget {
-  ScreenDish({super.key, required this.dish});
+  const ScreenDish({super.key, required this.dish});
   final DishModel? dish;
   @override
   Widget build(BuildContext context) {

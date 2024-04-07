@@ -11,17 +11,18 @@ class DishApiServices {
   Future<bool> addDish(Dish dish) async {
     final bearer = await getToken();
     try {
-      print(dish.categoryId);
-      print(dish.description);
-      print(dish.dishId);
-      print(dish.image);
-      print(dish.isAvailable);
-      print(dish.isVeg);
-      print(dish.name);
-      print(dish.price);
-      print(dish.quantity);
-      print(dish.sellerId);
+      // print(dish.categoryId);
+      // print(dish.description);
+      // print(dish.dishId);
+      // print(dish.image);
+      // print(dish.isAvailable);
+      // print(dish.isVeg);
+      // print(dish.name);
+      // print(dish.price);
+      // print(dish.quantity);
+      // print(dish.sellerId);
       final body = FormData.fromMap(dish.toJson(dish));
+      // print('👀${body.files}');
       final response = await dio.post(
         ApiEndPoints.addDish,
         options: Options(
@@ -33,17 +34,18 @@ class DishApiServices {
         ),
         data: body,
       );
-      print(response.statusCode);
+      // print('❤️${response}');
+      // print('😂${response}');
       if (response.statusCode == 200) {
         return true;
       } else {
         return false;
       }
     } on DioException catch (e) {
-      print("DioException: ${e.message} is the exception");
+      log("DioException: ${e.message} is the exception");
       return false;
     } catch (e) {
-      print("Error: $e");
+      // print("Error: $e");
       return false;
     }
   }
@@ -53,7 +55,7 @@ class DishApiServices {
     final bearer = await getToken();
     log('CATEGORYID${ApiEndPoints.baseUrl}${ApiEndPoints.getDishesByCategory}$categoryId 🤝');
 
-    print("👇");
+    // print("👇");
     try {
       final response = await dio.get(
         '${ApiEndPoints.getDishesByCategory}$categoryId',
@@ -67,9 +69,9 @@ class DishApiServices {
       );
 
       if (response.statusCode == 200) {
-        print(response);
-        print("-------👀----");
-        print(response.statusCode);
+        // print(response);
+        // print("-------👀----");
+        // print(response.statusCode);
 
         final Map<String, dynamic> data = response.data;
 
@@ -108,8 +110,8 @@ class DishApiServices {
         'Authorization': 'Bearer $token',
       }),
     );
-    print(response.statusCode);
-    print(response);
+    // print("🍿${response.statusCode}");
+    // print(response);
     try {
       if (response.statusCode == 200) {
         return true;
@@ -117,7 +119,7 @@ class DishApiServices {
         return false;
       }
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return false;
     }
   }
@@ -138,16 +140,16 @@ class DishApiServices {
           },
         ),
       );
-      print(response.data.toString());
+      // print(response.data.toString());
       if (response.statusCode == 200) {
-        print('status 200');
+        // print('status 200');
         return true;
       } else {
         return false;
       }
     } catch (e) {
-      print('hlkjhklhklhklhlkhlkh');
-      print(e.toString());
+      // print('not edited');
+      // print(e.toString());
       return false;
     }
   }

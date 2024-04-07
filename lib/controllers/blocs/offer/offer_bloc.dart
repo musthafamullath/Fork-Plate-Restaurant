@@ -9,20 +9,14 @@ class OfferBloc extends Bloc<OfferEvent, OfferState> {
   OfferBloc() : super(OfferInitial()) {
     on<GetOffersEvent>(getAllOffersEvent);
     on<AddOfferEvent>(addOfferEvent);
+    on<UpdateOfferEvet>(updateOfferEvet);
+    on<GetOfferByCategoryEvent>(getOfferByCategoryEvent);
   }
 
   FutureOr<void> getAllOffersEvent(
       GetOffersEvent event, Emitter<OfferState> emit) async {
-    final offers = await OfferApiServices().getAllOffers(event.categoryId);
-    if (offers.isNotEmpty) {
-      emit(GetOfferSuccessState(offers: offers));
-    } else {
-      if (offers == []) {
-        emit(GetOfferFieldState(offers: []));
-      } else {
-        emit(GetOfferErrorState(offers: []));
-      }
-    }
+    final offers = await OfferApiServices().getAllOffers();
+    emit(OfferState(offers: offers));
   }
 
 
@@ -47,5 +41,28 @@ class OfferBloc extends Bloc<OfferEvent, OfferState> {
     }else{
       emit(AddOfferErrorState(offers: []));
     }
+  }
+
+  
+
+ 
+
+  FutureOr<void> updateOfferEvet(UpdateOfferEvet event, Emitter<OfferState> emit)async {
+    final offers = await OfferApiServices().updateOffer(event.offer);
+    if(offers){
+      emit(UpdateOfferSuccessState(offers: []));
+    }else{
+      emit(UpdateOfferErrorState(offers: []));
+    }
+
+    List<Offer> offer = 
+    await OfferApiServices().getAllOffers();
+    emit(GetOfferByCategoryState( offers: offer));
+  }
+
+  FutureOr<void> getOfferByCategoryEvent(GetOfferByCategoryEvent event, Emitter<OfferState> emit)async {
+    List<Offer> offer = 
+    await OfferApiServices().getAllOffers();
+    emit(GetOfferByCategoryState( offers: offer));
   }
 }

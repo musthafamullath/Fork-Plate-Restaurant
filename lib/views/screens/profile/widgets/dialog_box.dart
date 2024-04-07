@@ -24,8 +24,11 @@ showDialogBOx(BuildContext context) {
               preferences.setString('token', '');
               SharedPreferences prefers = await SharedPreferences.getInstance();
               prefers.setBool('LOGIN', false);
+              // ignore: use_build_context_synchronously
               context.read<BottomNavigationBloc>().add(BottomNavigationEvent(index: 0));
+              // ignore: use_build_context_synchronously
               Navigator.pop(context);
+              // ignore: use_build_context_synchronously
               Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const ScreenLoginRestration(),), (route) => false);
             },
             child: const Text('Logout'),

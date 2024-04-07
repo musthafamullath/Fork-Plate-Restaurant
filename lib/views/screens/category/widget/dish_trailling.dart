@@ -94,11 +94,12 @@ class DishTrailingOparations extends StatelessWidget {
                                                     await DishApiServices().deleteDish(state.dishes[index].dishId!).then(
                                                           (value) => context.read<DishBloc>().add(
                                                                 GetDishesByCategoryEvent(
-                                                                  categoryId: category.id,
+                                                                  categoryId: category.id!,
                                                                 ),
                                                               ),
                                                         );
     
+                                                    // ignore: use_build_context_synchronously
                                                     Navigator.pop(context);
                                                   },
                                                 )

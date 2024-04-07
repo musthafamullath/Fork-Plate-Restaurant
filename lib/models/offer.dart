@@ -1,61 +1,67 @@
-import 'package:http/http.dart';
+import 'package:dio/dio.dart';
 
-class OfferGet {
-  int? offerId;
-  String? offerTitle;
-  int? sellerId;
-  int? categoryId;
-  int? offerPercentage;
-  String? imageUrl;
-  String? startDate;
-  String? endDate;
-  String? status;
-  OfferGet({
-    this.offerId,
-    this.offerTitle,
-    this.sellerId,
-    this.categoryId,
-    this.offerPercentage,
-    this.imageUrl,
-    this.startDate,
-    this.endDate,
-    this.status,
+class Offer {
+  final int offerId;
+  final String offerTitle;
+  final int sellerId;
+  final int categoryId;
+  final String imageUrl;
+  final int offerPercentage;
+  final String startDate;
+  final String endDate;
+  final String status;
+
+  Offer({
+    required this.offerId,
+    required this.offerTitle,
+    required this.sellerId,
+    required this.categoryId,
+    required this.imageUrl,
+    required this.offerPercentage,
+    required this.startDate,
+    required this.endDate,
+    required this.status,
   });
-  factory OfferGet.fromJson(Map<String, dynamic> json) {
-    return OfferGet(
+
+  factory Offer.fromJson(Map<String, dynamic> json) {
+    return Offer(
       offerId: json['offerId'],
       offerTitle: json['offerTitle'],
       sellerId: json['sellerId'],
       categoryId: json['categoryId'],
+      imageUrl: json['imageUrl'],
       offerPercentage: json['offerPercentage'],
       startDate: json['startDate'],
       endDate: json['endDate'],
       status: json['status'],
     );
   }
-  Map<String, dynamic> toJson(OfferGet offer) {
-    final data = {
-      "categoryId": offer.categoryId,
-      "endDate": offer.endDate,
-      "imageUrl": offer.imageUrl,
-      "offerId": offer.offerId,
-      "offerPercentage": offer.offerPercentage,
-      "offerTitle": offer.offerTitle,
-      "sellerId": offer.sellerId,
-      "startDate": offer.startDate,
-      "status": offer.status,
+
+  Map<String, dynamic> toJson(Offer offer) {
+    final Map<String, dynamic> data = {
+      'offerId': offer.offerId,
+      'offerTitle': offer.offerTitle,
+      'sellerId': offer.sellerId,
+      'categoryId': offer.categoryId,
+      'imageUrl' : offer.imageUrl,
+      'offerPercentage': offer.offerPercentage,
+      'startDate': offer.startDate,
+      'endDate': offer.endDate,
+      'status': offer.status,
     };
+
     return data;
   }
 }
 
+
 class OfferRequest {
+  
   final MultipartFile image;
   final int categoryId;
-  String? startDate;
-  String? endDate;
   final String offerTitle;
-  final int offerPercentage;
+  // ignore: prefer_typing_uninitialized_variables
+  final  offerPercentage;
   final String status;
 
   OfferRequest({
@@ -64,16 +70,13 @@ class OfferRequest {
     required this.offerTitle,
     required this.offerPercentage,
     required this.status,
-    this.endDate,
-    this.startDate,
+
   });
   Map<String, dynamic> toJson(OfferRequest offerRequest) {
     final data = {
       'image': offerRequest.image,
       'categoryId': offerRequest.categoryId,
-      'endDate': offerRequest.endDate,
       'offerPercentage': offerRequest.offerPercentage,
-      'startDate': offerRequest.startDate,
       'offerTitle': offerRequest.offerTitle,
       'status': offerRequest.status,
     };

@@ -24,6 +24,7 @@ enum Operatior {
   edit,
 }
 
+// ignore: must_be_immutable
 class ScreenAddDishes extends StatefulWidget {
   ScreenAddDishes(
       {super.key,
@@ -131,7 +132,7 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                               if (imagePath != null) {
                                 image = imagePath!.path;
 
-                                print('image $image');
+                                // print('image $image');
                               }
                             },
                             child: Container(
@@ -313,7 +314,9 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                                       isVeg: isVeg,
                                       isAvailable: isAvailable,
                                     );
+                                    // ignore: use_build_context_synchronously
                                     context.read<DishBloc>().add(
+                                        // ignore: use_build_context_synchronously
                                         AddNewDishEvent(
                                             dish: dish, context: context));
                                   } else {

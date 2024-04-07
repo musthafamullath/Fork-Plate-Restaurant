@@ -15,9 +15,9 @@ class ScreenOrders extends StatelessWidget {
             child: TabBarWidgetCustom(text: "Orders")),
         body: TabBarView(children: [
           Container(
-            margin: EdgeInsets.all(20),
+            margin:const EdgeInsets.all(20),
             color: amber,
-            child: Center(
+            child: const Center(
                 child: Text(
               "Orders",
               style: TextStyle(
@@ -27,9 +27,9 @@ class ScreenOrders extends StatelessWidget {
             )),
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             color: red,
-            child: Center(
+            child: const Center(
                 child: Text(
               "Cooking",
               style: TextStyle(
@@ -39,9 +39,9 @@ class ScreenOrders extends StatelessWidget {
             )),
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             color: black,
-            child: Center(
+            child: const Center(
                 child: Text(
               "Ready",
               style: TextStyle(
@@ -51,9 +51,9 @@ class ScreenOrders extends StatelessWidget {
             )),
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             color: green,
-            child: Center(
+            child: const Center(
                 child: Text(
               "Delivered",
               style: TextStyle(

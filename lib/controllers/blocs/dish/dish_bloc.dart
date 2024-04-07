@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/controllers/api_services/dish/api_calling.dart';
@@ -5,7 +7,7 @@ import 'package:foodie_fly_restaurant/models/dish.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/main/screen_main_page.dart';
 import 'package:foodie_fly_restaurant/views/widgets/function_widgets/snackbar_function.dart';
-import 'package:meta/meta.dart';
+
 
 part 'dish_event.dart';
 part 'dish_state.dart';
@@ -29,7 +31,9 @@ class DishBloc extends Bloc<DishEvent, DishState> {
       emit(AddNewDishState(isLoading: true));
       final result = await DishApiServices().addDish(event.dish);
       if (result) {
+       
         showSnack(event.context, Colors.green, 'Successfully Inserted.');
+       
         Navigator.of(event.context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => ScreenMainPage()),
             (route) => false);

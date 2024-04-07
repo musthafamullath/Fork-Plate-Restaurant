@@ -1,7 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +7,7 @@ import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.d
 import 'package:foodie_fly_restaurant/controllers/blocs/offer/offer_bloc.dart';
 import 'package:foodie_fly_restaurant/models/offer.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
+import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 import 'package:foodie_fly_restaurant/views/screens/add_dishes/widgets/pick_image.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/button_widget.dart';
@@ -17,15 +16,25 @@ import 'package:foodie_fly_restaurant/views/widgets/function_widgets/snackbar_fu
 
 import 'package:image_picker/image_picker.dart';
 
+class ScreenAddOffer extends StatefulWidget {
+  const ScreenAddOffer({super.key});
 
+  @override
+  State<ScreenAddOffer> createState() => _ScreenAddOfferState();
+}
 
-class ScreenAddOffer extends StatelessWidget {
-  ScreenAddOffer({super.key});
+class _ScreenAddOfferState extends State<ScreenAddOffer> {
   final formkey = GlobalKey<FormState>();
   final offerController = TextEditingController();
+
   final offerPerController = TextEditingController();
+
+
+
   int categoryId = 0;
+
   XFile? imagePath;
+
   String image = '';
 
   @override
@@ -49,7 +58,7 @@ class ScreenAddOffer extends StatelessWidget {
                     imagePath = await showBottomSheetWidget(context);
                     if (imagePath != null) {
                       image = imagePath!.path;
-                      print(image);
+                      
                     }
                   },
                   child: Container(
@@ -64,8 +73,11 @@ class ScreenAddOffer extends StatelessWidget {
                         : const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.add_a_photo, size: 30),
-                              Text('Add Banner')
+                              Icon(Icons.add_a_photo, size: 80),
+                              Text(
+                                'Add Banner',
+                                style: boldBlack,
+                              )
                             ],
                           ),
                   ),
@@ -92,7 +104,7 @@ class ScreenAddOffer extends StatelessWidget {
                         return null;
                       },
                       decoration: InputDecoration(
-                          label: Text(state.categories[0].name),
+                          label: Text(state.categories[0].name!),
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 18, vertical: 10),
                           border: OutlineInputBorder(
@@ -101,11 +113,11 @@ class ScreenAddOffer extends StatelessWidget {
                       items: state.categories.map((cat) {
                         return DropdownMenuItem(
                           value: cat,
-                          child: Text(cat.name),
+                          child: Text(cat.name!),
                         );
                       }).toList(),
                       onChanged: (value) async {
-                        categoryId = value!.id;
+                        categoryId = value!.id!;
                         log(categoryId.toString());
                       },
                     );
@@ -122,29 +134,63 @@ class ScreenAddOffer extends StatelessWidget {
                     return null;
                   },
                 ),
-                kHight10,
-                ButtonWidget(
-                  width: width,
-                  text: 'Add offer',
-                  onPressed: () async {
-                    if (formkey.currentState!.validate()) {
-                      if (image == '') {
-                        showSnack(context, red, 'Add Banner');
-                      } else {
-                        MultipartFile imageFile =
-                            await MultipartFile.fromFile(image);
-                        final offer = OfferRequest(
-                          image: imageFile,
-                          categoryId: categoryId,
-                          offerTitle: offerController.text,
-                          offerPercentage: int.parse(offerController.text),
-                          status: 'ACTIVE',
-                        );
-                        context.read<OfferBloc>().add(AddOfferEvent(offerRequest: offer,));
-                      }
+                kHight30,
+                BlocConsumer<OfferBloc, OfferState>(
+                  listener: (context, state) {
+                    if (state is AddOfferSuccessState) {
+                      showSnack(context, green, 'offer created successfully');
+                    } else if (state is AddOfferInvalidInputs) {
+                      showSnack(context, amber, "invalid inputs");
+                    } else if (state is AddOfferFailedToGetImageFromForm) {
+                      showSnack(
+                          context, orange, "failed to get image from form");
+                    } else if (state is AddOfferFailedToParseBody) {
+                      showSnack(context, orange, "failed to parse body");
+                    } else if (state is AddOfferFailedToOpenFilePathInServer) {
+                      showSnack(
+                          context, amber, "failed to open file path in server");
+                    } else if (state is AddOfferFailedToUploadFileToCloud) {
+                      showSnack(
+                          context, amber, "failed to upload file to cloud");
+                    } else if (state is AddOfferFailedToDeleteTempImage) {
+                      showSnack(context, amber, "failed to delete temp image");
+                    } else if (state
+                        is AddOfferErrorOccuredWhileCreatingOffer) {
+                      showSnack(context, orange,
+                          "error occured while creating offer");
+                    } else {
+                      showSnack(context, amber, "pls wait");
                     }
                   },
-                  height: height,
+                  builder: (context, state) {
+                    return ButtonWidget(
+                      width: width,
+                      text: 'Add offer',
+                      onPressed: () async {
+                        if (formkey.currentState!.validate()) {
+                          if (image == '') {
+                            showSnack(context, red, 'Add Banner');
+                          } else {
+                            MultipartFile imageFile =
+                                await MultipartFile.fromFile(image);
+                            final offer = OfferRequest(
+                              image: imageFile,
+                              categoryId: categoryId,
+
+                              offerTitle: offerController.text,
+                              offerPercentage:  int.parse(offerPerController.text),
+                              status: 'ACTIVE',
+                            );
+                            // ignore: use_build_context_synchronously
+                            context.read<OfferBloc>().add(AddOfferEvent(
+                                  offerRequest: offer,
+                                ));
+                          }
+                        }
+                      },
+                      height: height * 1.5 / 10,
+                    );
+                  },
                 ),
               ],
             ),

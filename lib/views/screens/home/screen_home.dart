@@ -75,11 +75,11 @@ class _ScreenHomeState extends State<ScreenHome> {
                                       contentPadding:
                                           const EdgeInsets.symmetric(
                                               horizontal: 8),
-                                      title: Text(
+                                      title: const Text(
                                         'Order Id: ',
                                         style: boldBlack,
                                       ),
-                                      subtitle: Text(
+                                      subtitle: const Text(
                                         'Order Amount: ₹',
                                         style: semiBoldBlack,
                                       ),

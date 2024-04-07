@@ -5,6 +5,7 @@ import 'package:foodie_fly_restaurant/models/category.dart';
 import 'package:foodie_fly_restaurant/models/dish.dart';
 import 'package:foodie_fly_restaurant/views/screens/add_dishes/screen_add_dishes.dart';
 
+// ignore: must_be_immutable
 class DropDownWidget extends StatelessWidget {
   DropDownWidget({
     super.key,
@@ -17,15 +18,15 @@ class DropDownWidget extends StatelessWidget {
   final List<Category> categories;
   final String title;
   String category = '';
-  DishModel? dish;
-  Operatior operation;
+  final DishModel? dish;
+  final Operatior operation;
 
   @override
   Widget build(BuildContext context) {
     category = dish != null
         ? categories
             .firstWhere((element) => element.id == dish!.categoryId)
-            .name
+            .name!
         : '';
     return DropdownButtonFormField(
       validator: (value) {
@@ -43,18 +44,18 @@ class DropDownWidget extends StatelessWidget {
         ),
       ),
       items: categories.map((cat) {
-        print(categories.length);
+        
         return DropdownMenuItem(
           value: cat,
-          child: Text(cat.name),
+          child: Text(cat.name!),
         );
       }).toList(),
       onChanged: (value) async {
         category = value?.name ?? 'Biriyani';
-        // print(value!.name);
+        
         context.read<DishBloc>().add(
               AddCategoryEvent(
-                categoryId: value!.id,
+                categoryId: value!.id!,
               ),
             );
       },

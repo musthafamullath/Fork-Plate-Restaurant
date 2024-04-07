@@ -48,13 +48,13 @@ class ScreenAllCategories extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.network(
-                        state.categories[index].iconUrl,
+                        state.categories[index].iconUrl!,
                         height: height * 1.7/ 10,
                         width: width,
                       ),
                       
                       Text(
-                        state.categories[index].name,
+                        state.categories[index].name!,
                         style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       )
