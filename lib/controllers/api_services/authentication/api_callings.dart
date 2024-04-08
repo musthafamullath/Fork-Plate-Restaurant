@@ -55,7 +55,7 @@ class ApiSellerAuthentication {
         return '';
       }
     } catch (e) {
-      log(e.toString());
+      log("🎉${e.toString()}");
       return '';
     }
   }
@@ -99,7 +99,7 @@ class ApiSellerAuthentication {
         return '';
       }
     } catch (e) {
-      log(e.toString());
+      log("👇${e.toString()}");
       // print('------');
       return '';
     }

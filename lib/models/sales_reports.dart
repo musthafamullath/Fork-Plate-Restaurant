@@ -1,8 +1,10 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 class SalesReport {
-  final num todayOrder;
-  final num totelOrder;
-  final num todayRevenue;
-  final num totelReverue;
+  final  todayOrder;
+  final  totelOrder;
+  final  todayRevenue;
+  final  totelReverue;
 
   SalesReport(
       {required this.todayOrder,

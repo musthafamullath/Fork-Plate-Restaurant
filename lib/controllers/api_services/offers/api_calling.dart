@@ -62,11 +62,11 @@ class OfferApiServices {
       return '';
     } on DioException catch (e) {
       // print("_________________😍----------");
-      log(e.toString());
+     log("🎉${e.toString()}");
       return '';
     } catch (e) {
       // print("_________________🎉----------");
-      log(e.toString());
+      log("🎉${e.toString()}");
       return '';
     }
   }
@@ -102,6 +102,7 @@ class OfferApiServices {
         return [];
       }
     } catch (e) {
+      log("🎉${e.toString()}");
       // print(e.toString());
       return [];
     }

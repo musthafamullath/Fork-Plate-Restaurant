@@ -36,7 +36,7 @@ class CategoriesApiServices {
         return [];
       }
     } catch (e) {
-      log(e.toString());
+      log("🎉${e.toString()}");
       return [];
     }
   }

@@ -2,13 +2,15 @@ class ApiEndPoints {
   static const String baseUrl = 'http://10.0.2.2:8989';
   static const String sellerRegister = '/seller/register';
   static const String sellerLogin = '/seller/login';
-  static const getSellerProfile = '/seller/profile';
-  static const addDish = '/seller/addDish';
-  static const dailyStatus = '/seller/sales?filter=daily';
-  static const totelStatus = '/seller/sales';
-  static const categories = '/categories';
-  static const getDishesByCategory = '/seller/dishes?category=';
-  static const deleteOrUpdateDish = '/seller/dishes/';
-  static const addOffers = '/seller/offers/addOffer';
-  static const getAllOffers = '/seller/offers';
+  static const String getSellerProfile = '/seller/profile';
+  static const String addDish = '/seller/addDish';
+  static const String dailyStatus = '/seller/sales?filter=daily';
+  static const String totelStatus = '/seller/sales';
+  static const String categories = '/categories';
+  static const String getDishesByCategory = '/seller/dishes?category=';
+  static const String deleteOrUpdateDish = '/seller/dishes/';
+  static const String addOffers = '/seller/offers/addOffer';
+  static const String getAllOffers = '/seller/offers';
+  static const String getAllOrders = '/seller/orders';
+  static const String getOrderById = '/seller/orders/';
 }

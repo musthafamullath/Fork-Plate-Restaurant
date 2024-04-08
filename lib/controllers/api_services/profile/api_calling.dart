@@ -31,7 +31,8 @@ class ProfileApiServices {
         return profile;
       }
     } catch (e) {
-      log(e.toString());
+      
+      log("🎉${e.toString()}");
     }
     return null;
   }

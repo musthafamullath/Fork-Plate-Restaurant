@@ -46,6 +46,7 @@ class DishApiServices {
       return false;
     } catch (e) {
       // print("Error: $e");
+      log("🎉${e.toString()}");
       return false;
     }
   }
@@ -90,10 +91,10 @@ class DishApiServices {
         return [];
       }
     } on DioException catch (e) {
-      log(e.toString());
+      log("🎉${e.toString()}");
       return [];
     } catch (e) {
-      log(e.toString());
+      log("🎉${e.toString()}");
       return [];
     }
   }
@@ -148,6 +149,7 @@ class DishApiServices {
         return false;
       }
     } catch (e) {
+      log("🎉${e.toString()}");
       // print('not edited');
       // print(e.toString());
       return false;

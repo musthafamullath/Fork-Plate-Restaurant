@@ -42,8 +42,7 @@ class SalesApiServices {
         return null;
       }
     } catch (e) {
-     
-      log(e.toString());
+     log("🎉${e.toString()}");
       return null;
     }
   }
@@ -82,8 +81,8 @@ class SalesApiServices {
         return null;
       }
     } catch (e) {
-     
-      log(e.toString());
+     log("🎉${e.toString()}");
+      
       return null;
     }
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/bloc/order_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/bottom_navigation/bottom_navigation_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/dish/dish_bloc.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => DishBloc(),),
         BlocProvider(create: (context) => OfferBloc(),),
         BlocProvider(create: (context) => SalesDailyBloc(),),
-        BlocProvider(create: (context) => SalesTotelBloc(),)
+        BlocProvider(create: (context) => SalesTotelBloc(),),
+        BlocProvider(create: (context) => OrderBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
