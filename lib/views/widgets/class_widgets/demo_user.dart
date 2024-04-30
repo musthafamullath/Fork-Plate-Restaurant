@@ -21,11 +21,11 @@ class DemoUser extends StatelessWidget {
         ),
         textSpanWidget(
           blackText: 'Email-address: ',
-          orangeText: 'cochincafe@gmail.com',
+          orangeText: 'usthad@gmail.com',
         ),
         textSpanWidget(
           blackText: 'Password: ',
-          orangeText: 'CochinCafe@123',
+          orangeText: 'Usthad@123',
         ),
       ],
     );
