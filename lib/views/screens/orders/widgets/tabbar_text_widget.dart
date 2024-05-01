@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+
 import 'package:flutter/material.dart';
 
 class TabBarWidget extends StatelessWidget {
@@ -9,14 +9,12 @@ class TabBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInDownBig(
-      child: Text(
+    return  Text(
         text,
         style:const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
-      ),
-    );
+      );
   }
 }

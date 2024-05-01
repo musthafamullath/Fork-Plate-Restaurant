@@ -1,4 +1,5 @@
-import 'package:animate_do/animate_do.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
@@ -40,8 +41,7 @@ class ScreenOffers extends StatelessWidget {
                       Text(' Empty', style: boldOrangeGrey),
                     ],
                   ))
-                : FadeInUpBig(
-                  child: ListView.builder(
+                :  ListView.builder(
                       itemCount: state.offers.length,
                       itemBuilder: (context, index) {
                         return Column(
@@ -151,32 +151,32 @@ class ScreenOffers extends StatelessWidget {
                                                       .substring(0, 6)),
                                             ],
                                           ),
-                                          // Column(
-                                          //   children: <Widget>[
-                                          //     CircleAvatar(
-                                          //       foregroundColor: black,
-                                          //       backgroundColor:
-                                          //           Colors.black.withAlpha(7),
-                                          //       radius: 25,
-                                          //       child: const Icon(
-                                          //         CupertinoIcons
-                                          //             .eyedropper_halffull,
-                                          //         size: 25,
-                                          //       ),
-                                          //     ),
-                                          //     const Divider(),
-                                          //     CircleAvatar(
-                                          //       foregroundColor: black,
-                                          //       backgroundColor:
-                                          //           Colors.black.withAlpha(7),
-                                          //       radius: 25,
-                                          //       child: const Icon(
-                                          //         CupertinoIcons.delete,
-                                          //         size: 25,
-                                          //       ),
-                                          //     )
-                                          //   ],
-                                          // )
+                                          Column(
+                                            children: <Widget>[
+                                              CircleAvatar(
+                                                foregroundColor: black,
+                                                backgroundColor:
+                                                    Colors.black.withAlpha(7),
+                                                radius: 25,
+                                                child: const Icon(
+                                                  CupertinoIcons
+                                                      .eyedropper_halffull,
+                                                  size: 25,
+                                                ),
+                                              ),
+                                              const Divider(),
+                                              CircleAvatar(
+                                                foregroundColor: black,
+                                                backgroundColor:
+                                                    Colors.black.withAlpha(7),
+                                                radius: 25,
+                                                child: const Icon(
+                                                  CupertinoIcons.delete,
+                                                  size: 25,
+                                                ),
+                                              )
+                                            ],
+                                          )
                                         ],
                                       )
                                     ],
@@ -191,7 +191,7 @@ class ScreenOffers extends StatelessWidget {
                         );
                       },
                     ),
-                ),
+                
           );
         },
       ),

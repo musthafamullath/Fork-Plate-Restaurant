@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 
@@ -22,7 +22,7 @@ class AppBarWidget extends StatelessWidget {
       child: Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 40),
-          child: FadeInDownBig(
+          
             child: Text(title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
@@ -30,7 +30,7 @@ class AppBarWidget extends StatelessWidget {
                   fontSize: 26,
                   color: white,
                 )),
-          ),
+          
         ),
       ),
     );

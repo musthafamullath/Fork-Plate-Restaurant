@@ -24,14 +24,15 @@ class DishTrailingOparations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width * .25,
+      width: width *3/10,
+      
       child: BlocBuilder<CategoryBloc,
           CategoryState>(
         builder: (context, state) {
           final categories = state.categories;
           return Row(
             mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
+                MainAxisAlignment.spaceEvenly,
             children: [
               BlocBuilder<DishBloc, DishState>(
                 builder: (context, state) {
@@ -54,10 +55,13 @@ class DishTrailingOparations extends StatelessWidget {
                         ),
                       );
                     },
-                    icon: const Icon(
-                      CupertinoIcons
-                          .eyedropper_halffull,
-                      size: 32,
+                    icon: CircleAvatar(
+                      backgroundColor: Colors.black.withOpacity(0.1),
+                      child: const Icon(
+                        CupertinoIcons
+                            .eyedropper_halffull,
+                        size: 22,
+                      ),
                     ),
                   );
                 },
@@ -119,9 +123,12 @@ class DishTrailingOparations extends StatelessWidget {
                                   );
                                 });
                           },
-                          icon: const Icon(
-                            CupertinoIcons.delete,
-                            size: 32,
+                          icon: CircleAvatar(
+                            backgroundColor: Colors.black.withOpacity(0.1),
+                            child: const Icon(
+                              CupertinoIcons.delete,
+                              size: 22,
+                            ),
                           ),
                         )
                       : const SizedBox();

@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:lottie/lottie.dart';
@@ -30,13 +30,13 @@ class SplashComponeses extends StatelessWidget {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 7 / 10,
                 height: MediaQuery.of(context).size.height * 3 / 10,
-                child: FadeInRight(
-                  delay: const Duration(microseconds: 1500),
+                
+                 
                   child: const Text(
                     "Hungry for success? Dive into our food seller app and elevate your culinary journey with ease.",
                     style: TextStyle(fontSize: 20, color: white),
                   ),
-                ),
+              
               ),
             ),
           ],

@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 import 'package:foodie_fly_restaurant/views/screens/orders/widgets/tabbar_text_widget.dart';
@@ -24,7 +24,7 @@ class TabBarWidgetCustom extends StatelessWidget {
               bottomRight: Radius.circular(12))),
       child: AppBar(
         backgroundColor: Colors.orange.withBlue(300),
-        title: FadeInDownBig(child: const Text('Orders', style: bigBoldWhite)),
+        title: const Text('Orders', style: bigBoldWhite),
         centerTitle: true,
         bottom: const TabBar(
           labelColor: Colors.white,

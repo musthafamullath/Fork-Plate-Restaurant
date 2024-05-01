@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/profile/profile_bloc.dart';
@@ -34,8 +34,7 @@ class HomeAppBarWidget extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          FadeInDownBig(
-            child: Padding(
+           Padding(
               padding: const EdgeInsets.fromLTRB(25, 55, 25, 0),
               child: BlocBuilder<ProfileBloc, ProfileState>(
                 builder: (context, state) {
@@ -61,7 +60,7 @@ class HomeAppBarWidget extends StatelessWidget {
                 },
               ),
             ),
-          ),
+          
         ],
       ),
     );

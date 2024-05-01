@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,8 +64,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                         (index) {
                           return Padding(
                             padding: const EdgeInsets.only(left: 10, right: 10),
-                            child: FadeInUpBig(
-                              child: Card(
+                            child:  Card(
                                 shadowColor: orangePointWithblue,
                                 surfaceTintColor: orangePointWithblue,
                                 elevation: 5,
@@ -92,7 +91,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                                   ],
                                 ),
                               ),
-                            ),
+                            
                           );
                         },
                       ),

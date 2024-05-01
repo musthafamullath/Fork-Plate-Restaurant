@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 
@@ -13,8 +13,7 @@ class FloatingActionBTN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FadeInUpBig(
-      child: FloatingActionButton(
+    return FloatingActionButton(
            splashColor: orangePointWithblue,
             backgroundColor: white,
             
@@ -27,7 +26,6 @@ class FloatingActionBTN extends StatelessWidget {
                 Text(string,style:const TextStyle(fontSize: 11,fontWeight: FontWeight.bold),)
               ],
             )
-          ),
-    );
+          );
   }
 }
