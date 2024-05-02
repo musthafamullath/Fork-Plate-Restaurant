@@ -36,14 +36,14 @@ class HomeAppBarWidget extends StatelessWidget {
       child: Stack(
         children: [
            Padding(
-              padding: const EdgeInsets.fromLTRB(25, 55, 25, 0),
+              padding: const EdgeInsets.fromLTRB(20, 55, 20, 0),
               child: BlocBuilder<ProfileBloc, ProfileState>(
                 builder: (context, state) {
                   return Text.rich(
                     TextSpan(
                       children: <TextSpan>[
                         const TextSpan(
-                          text: 'Hello, Welome  ',
+                          text: 'Hello, Welome ',
                           style: bigBoldBlack,
                         ),
                         TextSpan(
@@ -52,7 +52,7 @@ class HomeAppBarWidget extends StatelessWidget {
                           style: bigBoldBlack,
                         ),
                         const TextSpan(
-                          text: " . . .",
+                          text: "🤝..!!!",
                           style: bigBoldBlack,
                         ),
                       ],

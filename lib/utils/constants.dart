@@ -24,18 +24,4 @@ const Color green = Colors.green;
 const Color white = Colors.white;
 const Color black = Colors.black;
 const Color grey = Colors.grey;
-const MaterialColor materialColor = MaterialColor(
-  0xFFFFA500,
-  <int, Color>{
-    50: Color(0xFFFFA500),
-    100: Color(0xFFFFA500),
-    200: Color(0xFFFFA500),
-    300: Color(0xFFFFA500),
-    400: Color(0xFFFFA500),
-    500: Color(0xFFFFA500),
-    600: Color(0xFFFFA500),
-    700: Color(0xFFFFA500),
-    800: Color(0xFFFFA500),
-    900: Color(0xFFFFA500),
-  },
-);
+

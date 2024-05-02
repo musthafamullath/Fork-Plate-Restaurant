@@ -17,16 +17,16 @@ class SellerSalesPanalWidget extends StatelessWidget {
     context.read<SalesReportBloc>().add(GetDailySalesReportEvent());
     return Positioned(
       top: 110,
-      left: 10,
+      left: 33,
       child: Container(
-        width: width * 9.5 / 10,
+        width: width * 8.5 / 10,
         height: width * 3 / 10,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.grey.shade100,
+          color: yellow,
           border: Border.all(
-            width: 3,
-            color: Colors.grey.shade300,
+            width: 1.5,
+            color: black,
           ),
         ),
         child: BlocBuilder<SalesReportBloc, SalesReportState>(
@@ -35,94 +35,86 @@ class SellerSalesPanalWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                  width: width * 4.5 / 10,
+                  width: width * 3 / 10,
                   height: 100 / 01,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
+                    color: yellow,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Card(
-                    margin: const EdgeInsets.all(7),
-                    shadowColor: grey,
-                    surfaceTintColor: grey,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 1.5, color: Colors.grey.shade300),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 6),
-                            child: Text(
-                              "Today's Order",
-                              style: boldGrey,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: yellow,
+                        border: Border.all(
+                            width: 1, color:black),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 6),
+                          child: Text(
+                            "Today's Orders",
+                            style: semiBoldBlack,
+                          ),
+                        ),
+                        Divider(
+                          thickness: 2,
+                          color: Colors.yellow.shade300,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 6),
+                          child: Text(
+                            '${state.report?.saleCount}',
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: black,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Divider(
-                            thickness: 2,
-                            color: Colors.grey.shade300,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 6),
-                            child: Text(
-                              '${state.report?.saleCount}',
-                              style: const TextStyle(
-                                fontSize: 20,
-                                color: yellow,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 Container(
-                  width: width *4.8 / 10,
+                 
+                  width: width *5 / 10,
                   height: 100 / 01,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
+                    color: yellow,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Card(
-                    margin: const EdgeInsets.all(7),
-                    shadowColor: yellow,
-                    surfaceTintColor: yellow,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 1.5, color: Colors.grey.shade300),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 6),
-                            child: Text(
-                              "Today's revenue",
-                              style: boldGrey,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 1, color: black),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 6),
+                          child: Text(
+                            "Today's revenue",
+                            style: semiBoldBlack,
+                          ),
+                        ),
+                        Divider(
+                          thickness: 2,
+                          color: Colors.yellow.shade300,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 6),
+                          child: Text(
+                            '₹ ${state.report?.totalSales.round()}.00',
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: black,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Divider(
-                            thickness: 2,
-                            color: Colors.grey.shade300,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 6),
-                            child: Text(
-                              '₹ ${state.report?.totalSales.round()}.00',
-                              style: const TextStyle(
-                                fontSize: 20,
-                                color: yellow,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
