@@ -24,21 +24,21 @@ class ScreenOffers extends StatelessWidget {
     context.read<CategoryBloc>().add(CategoryEvent());
 
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize: Size.fromHeight(90),
+      appBar: const  PreferredSize(
+        preferredSize: Size.fromHeight(80),
         child: AppBarWidget(title: "Offers"),
       ),
       body: BlocBuilder<OfferBloc, OfferState>(
         builder: (context, state) {
           return Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.only(left: 10,right: 10,top: 20),
             child: state.offers.isEmpty
-                ? Center(
+                ? const Center(
                     child: Column(
                     children: <Widget>[
-                      const CircularProgressIndicator(),
-                      const Divider(),
-                      Text(' Empty', style: boldOrangeGrey),
+                       CircularProgressIndicator(),
+                       Divider(),
+                      Text(' Empty', style: boldGrey),
                     ],
                   ))
                 : ListView.builder(
@@ -208,7 +208,7 @@ class ScreenOffers extends StatelessWidget {
                             ],
                           ),
                           kHight10,
-                          divider2,
+                          Divider(thickness: 2,color: Colors.grey.shade300,),
                           kHight10,
                         ],
                       );

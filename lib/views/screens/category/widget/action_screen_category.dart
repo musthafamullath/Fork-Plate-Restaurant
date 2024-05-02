@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
@@ -29,11 +28,11 @@ class ActionScreenCategory extends StatelessWidget {
         .add(GetDishesByCategoryEvent(categoryId: category.id!));
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(90),
+        preferredSize: const Size.fromHeight(80),
         child: AppBarWidget(title: category.name!),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(15),
         child: Column(
           children: [
             // kHight10,
@@ -46,8 +45,7 @@ class ActionScreenCategory extends StatelessWidget {
                           child: Text.rich(TextSpan(children: [
                             const TextSpan(
                                 text: 'The Category: ', style: boldBlack),
-                            TextSpan(
-                                text: category.name, style: boldOrangeGrey),
+                            TextSpan(text: category.name, style: boldGrey),
                             const TextSpan(text: ' is Empty', style: boldBlack),
                           ])),
                         )
@@ -58,13 +56,11 @@ class ActionScreenCategory extends StatelessWidget {
                           itemBuilder: (context, index) {
                             final dish = DishModel();
                             return Container(
-                              margin:const EdgeInsets.all(0),
-                              
                               decoration: BoxDecoration(
-                                color: Colors.orange[50],
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(width: 5,color: grey.withOpacity(0.5))
-                              ),
+                                  color: Colors.grey.shade200,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      width: 0.7, color: yellow)),
                               child: Column(
                                 children: [
                                   ListTile(
@@ -72,22 +68,23 @@ class ActionScreenCategory extends StatelessWidget {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
                                           builder: (context) => ScreenDish(
-                                            dish:
-                                                state is GetDishesByCategoryState
-                                                    ? state.dishes[index]
-                                                    : dish,
+                                            dish: state
+                                                    is GetDishesByCategoryState
+                                                ? state.dishes[index]
+                                                : dish,
                                           ),
                                         ),
                                       );
                                     },
-                                    contentPadding:
-                                        const EdgeInsets.symmetric(horizontal: 0),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        horizontal: 0),
                                     leading: state is GetDishesByCategoryState
                                         ? DishCircleAvatar(
                                             width: width,
                                             height: height,
                                             imageProvider: NetworkImage(
-                                              state.dishes[index].image!.toString(),
+                                              state.dishes[index].image!
+                                                  .toString(),
                                             ),
                                           )
                                         : DishCircleAvatar(
@@ -102,7 +99,7 @@ class ActionScreenCategory extends StatelessWidget {
                                       state is GetDishesByCategoryState
                                           ? state.dishes[index].name!
                                           : '',
-                                      style: bigBoldBlack,
+                                      style: boldBlack,
                                     ),
                                     subtitle: Text(
                                       state is GetDishesByCategoryState
@@ -110,14 +107,19 @@ class ActionScreenCategory extends StatelessWidget {
                                           : '',
                                       style: semiBoldGrey,
                                     ),
-                                    trailing: DishTrailingOparations(width: width, dish: dish, category: category, index: index,),
+                                    trailing: DishTrailingOparations(
+                                      width: width,
+                                      dish: dish,
+                                      category: category,
+                                      index: index,
+                                    ),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                       side: const BorderSide(
                                           color: orange, width: 1),
                                     ),
                                   ),
-                                  // kHight10,
+                                
                                 ],
                               ),
                             );
@@ -132,4 +134,3 @@ class ActionScreenCategory extends StatelessWidget {
     );
   }
 }
-

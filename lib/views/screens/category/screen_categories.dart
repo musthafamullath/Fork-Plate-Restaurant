@@ -42,8 +42,8 @@ class HomeCategoryGridviews extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                 decoration: BoxDecoration(
                   color: Colors.grey[100],
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 01.5,color: grey.withOpacity(0.5))
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(width: 0.9,color: grey.withOpacity(0.5))
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +51,7 @@ class HomeCategoryGridviews extends StatelessWidget {
                   children: [
                     Image.network(
                       index < 6 ? state.categories[index].iconUrl! : '',
-                      height: heightSize * 1 / 10,
+                      height: heightSize * 1 / 10, filterQuality: FilterQuality.high,fit: BoxFit.fill,
                     ),
                     Text(
                       index < 6 ? state.categories[index].name! : '',

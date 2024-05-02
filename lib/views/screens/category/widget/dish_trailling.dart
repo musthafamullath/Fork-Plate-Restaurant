@@ -56,7 +56,7 @@ class DishTrailingOparations extends StatelessWidget {
                       );
                     },
                     icon: CircleAvatar(
-                      backgroundColor: Colors.black.withOpacity(0.1),
+                      backgroundColor: Colors.grey.withOpacity(0.1),
                       child: const Icon(
                         CupertinoIcons
                             .eyedropper_halffull,
@@ -124,7 +124,7 @@ class DishTrailingOparations extends StatelessWidget {
                                 });
                           },
                           icon: CircleAvatar(
-                            backgroundColor: Colors.black.withOpacity(0.1),
+                            backgroundColor: Colors.grey.withOpacity(0.1),
                             child: const Icon(
                               CupertinoIcons.delete,
                               size: 22,

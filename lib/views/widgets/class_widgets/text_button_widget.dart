@@ -17,7 +17,7 @@ class TextButtonWidget extends StatelessWidget {
     return Container(
       width: width,
       alignment: Alignment.centerRight,
-      child: TextButton(onPressed: onPressed, child: Text(text,style: boldOrange,),),
+      child: TextButton(onPressed: onPressed, child: Text(text,style: boldYellow,),),
     );
   }
 }

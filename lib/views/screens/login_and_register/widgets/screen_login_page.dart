@@ -4,12 +4,13 @@ import 'package:foodie_fly_restaurant/controllers/blocs/login/login_bloc.dart';
 import 'package:foodie_fly_restaurant/views/screens/main/screen_main_page.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/demo_user.dart';
 import 'package:foodie_fly_restaurant/views/widgets/function_widgets/toggle_password_function.dart';
+
 import '../../../../controllers/cubits/toggle_password/toggle_password_cubit.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/text_form_field_validators.dart';
 import '../../../widgets/class_widgets/button_widget.dart';
-import '../../../widgets/function_widgets/snackbar_function.dart';
 import '../../../widgets/class_widgets/text_field_widget.dart';
+import '../../../widgets/function_widgets/snackbar_function.dart';
 
 class ScreenLoginPage extends StatefulWidget {
   const ScreenLoginPage({super.key});
@@ -31,17 +32,23 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Card(
-          elevation: 5,
-          margin: const EdgeInsets.all(20),
-          shadowColor: orangePointWithblue,
-          surfaceTintColor: orangePointWithblue,
+          margin: const EdgeInsets.all(15),
+          shadowColor: grey,
+          surfaceTintColor: grey,
           child: Container(
-            margin: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                width: 1,
+                color: grey.withOpacity(0.5),
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                kHight100,
+                kHight30,
                 const Text(
                   "Welcome",
                   style: TextStyle(
@@ -51,7 +58,7 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
                 ),
                 const Text(
                   "Login to your account",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 kHight30,
                 Form(
@@ -106,20 +113,16 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
                                 .pushReplacement(MaterialPageRoute(
                               builder: (context) => ScreenMainPage(),
                             ));
-                            showSnack(context, green,
-                                "successfully signed up");
+                            showSnack(context, green, "successfully signed up");
                           } else if (state is SellerLoginFailedInvalidFields) {
-                            showSnack(context, amber,
-                                "failed invalid fields");
+                            showSnack(context, amber, "failed invalid fields");
                           } else if (state is SellerLoginFailedToLogin) {
-                            showSnack(context, amber,
-                                "failed to register");
+                            showSnack(context, amber, "failed to register");
                           } else if (state
                               is SellerLoginFieldToParseBodyState) {
-                            showSnack(
-                                context, orange, "failed to parse body");
+                            showSnack(context, orange, "failed to parse body");
                           } else if (state is SellerLoginErrorState) {
-                            showSnack(context,red, "Error");
+                            showSnack(context, red, "Error");
                           }
                         },
                         builder: (context, state) {
@@ -143,7 +146,7 @@ class _ScreenLoginPageState extends State<ScreenLoginPage> {
                     ],
                   ),
                 ),
-                kHight100,
+                kHight30,
               ],
             ),
           ),

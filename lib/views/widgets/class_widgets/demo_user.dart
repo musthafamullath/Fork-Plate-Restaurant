@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
+
 import '../../../utils/text_styles.dart';
 
 class DemoUser extends StatelessWidget {
@@ -36,7 +37,9 @@ class DemoUser extends StatelessWidget {
       TextSpan(
         children: [
           TextSpan(text: blackText, style: semiBoldGrey),
-          TextSpan(text: orangeText, style: semiBoldOrangeGray)
+          TextSpan(text: orangeText, style:const TextStyle(
+            fontWeight: FontWeight.w500,color: black,fontSize: 14
+          ))
         ],
       ),
     );

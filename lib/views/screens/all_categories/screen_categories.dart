@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
+import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/add_dishes/screen_add_dishes.dart';
 import 'package:foodie_fly_restaurant/views/screens/category/widget/action_screen_category.dart';
 import 'package:foodie_fly_restaurant/views/screens/home/widgets/floating_action_btn.dart';
@@ -15,8 +16,8 @@ class ScreenAllCategories extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     context.read<CategoryBloc>().add(CategoryEvent());
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize: Size.fromHeight(70),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(80),
         child: AppBarWidget(title: "All Categories"),
       ),
       body: BlocBuilder<CategoryBloc, CategoryState>(
@@ -37,11 +38,12 @@ class ScreenAllCategories extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.symmetric(
-                      horizontal: 12, vertical: 15),
+                      horizontal: 8, vertical: 12),
                  
                   decoration: BoxDecoration(
-                    color: Colors.orange[50],
+                    color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 2,color: Colors.grey.shade300)
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +59,8 @@ class ScreenAllCategories extends StatelessWidget {
                         state.categories[index].name!,
                         style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
-                      )
+                      ),
+                      kHight10,
                     ],
                   ),
                 ),

@@ -45,7 +45,8 @@ class _ScreenHomeState extends State<ScreenHome> {
             body: SingleChildScrollView(
               child: Column(
                 children: [
-                  kHight100,
+                  kHight50,
+                  kHight10,
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ViewAllwidget(
@@ -74,9 +75,8 @@ class _ScreenHomeState extends State<ScreenHome> {
                                     padding: const EdgeInsets.only(
                                         left: 10, right: 10),
                                     child: Card(
-                                      shadowColor: yellow,
-                                      surfaceTintColor: yellow,
-                                     
+                                      shadowColor: grey,
+                                      surfaceTintColor: grey,
                                       child: Container(
                                         decoration: BoxDecoration(
                                             border: Border.all(
@@ -91,8 +91,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                                             children: [
                                               ListTile(
                                                 contentPadding:
-                                                    const EdgeInsets
-                                                        .symmetric(
+                                                    const EdgeInsets.symmetric(
                                                         horizontal: 8),
                                                 title: Text(
                                                   'Order id: ${state.orders[index].orderId}',
@@ -103,8 +102,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                                                   style: regularGrey,
                                                 ),
                                                 trailing: CircleAvatar(
-                                                  backgroundColor: Colors
-                                                      .grey
+                                                  backgroundColor: Colors.grey
                                                       .withOpacity(0.3),
                                                   radius: 24,
                                                   child: IconButton(
@@ -114,9 +112,8 @@ class _ScreenHomeState extends State<ScreenHome> {
                                                         MaterialPageRoute(
                                                           builder: (context) =>
                                                               ScreenOrderDetails(
-                                                            order:
-                                                                state.orders[
-                                                                    index],
+                                                            order: state
+                                                                .orders[index],
                                                           ),
                                                         ),
                                                       );
@@ -132,8 +129,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                                                 ),
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          30),
+                                                      BorderRadius.circular(30),
                                                 ),
                                               ),
                                             ],

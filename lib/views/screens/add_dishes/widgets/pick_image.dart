@@ -13,13 +13,11 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
       context: context,
       builder: (context) {
         return Container(
-          height: MediaQuery.of(context).size.height * 1.5/10,
+          height: MediaQuery.of(context).size.height * 1.5 / 10,
           width: double.infinity,
-          
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.orange[50]
-              ),
+              color: Colors.orange[50]),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -44,13 +42,12 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
                       Icons.camera,
                       color: orange,
                     ),
-                    label:  Text(
-                      'Camera',style: boldOrange,
+                    label: const Text(
+                      'Camera',
+                      style: boldYellow,
                     ),
                   ),
-                  
                   TextButton.icon(
-                    
                     onPressed: () async {
                       XFile imagePath = await fromGallery();
                       completer.complete(imagePath);
@@ -62,8 +59,9 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
                       Icons.image,
                       color: orange,
                     ),
-                    label:  Text(
-                      'Gallery',style: boldOrange,
+                    label: const Text(
+                      'Gallery',
+                      style: boldYellow,
                     ),
                   ),
                 ],

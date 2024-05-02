@@ -16,11 +16,11 @@ class ScreenOrderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    // final height = MediaQuery.of(context).size.height;
+
     context.read<OrderBloc>().add(GetOrderByIdEvent(orderId: order.orderId));
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize: Size.fromHeight(90),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(80),
         child: AppBarWidget(title: 'Order details'),
       ),
       body: Padding(
@@ -28,10 +28,9 @@ class ScreenOrderDetails extends StatelessWidget {
         child: BlocBuilder<OrderBloc, OrderState>(
           builder: (context, state) {
             return Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(25)),
+              padding: const EdgeInsets.all(10),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(25)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -40,10 +39,9 @@ class ScreenOrderDetails extends StatelessWidget {
                     // height: height * .25,
                     padding: const EdgeInsets.all(28),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                          color: Colors.grey.withOpacity(0.5), width: 3),
+                      border: Border.all(color: Colors.yellow, width: 1),
                     ),
                     child: Column(
                       children: [
@@ -55,7 +53,7 @@ class ScreenOrderDetails extends StatelessWidget {
                             Text(
                               order.orderId.toString(),
                               overflow: TextOverflow.ellipsis,
-                              style: semiBoldOrange,
+                              style: semiBoldGrey,
                             ),
                           ],
                         ),
@@ -67,7 +65,7 @@ class ScreenOrderDetails extends StatelessWidget {
                             Text(
                               DateFormat("  d MMMM yyy")
                                   .format(DateTime.parse(order.orderDate)),
-                              style: semiBoldOrange,
+                              style: semiBoldGrey,
                             ),
                           ],
                         ),
@@ -78,7 +76,7 @@ class ScreenOrderDetails extends StatelessWidget {
                             const Text('Item count: ', style: semiBoldBlack),
                             Text(
                               order.itemCount.toString(),
-                              style: semiBoldOrange,
+                              style: semiBoldGrey,
                             ),
                           ],
                         ),
@@ -88,26 +86,39 @@ class ScreenOrderDetails extends StatelessWidget {
                           children: [
                             const Text('Delivery Status: ',
                                 style: semiBoldBlack),
-                            SizedBox(
+                            Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 2, color: grey.withOpacity(0.3)),
+                                  borderRadius: BorderRadius.circular(10)),
                               width: width * .4,
                               child: DropdownButtonFormField(
+                                elevation: 5,
+                                iconSize: 32,
+                                borderRadius: BorderRadius.circular(5),
+                                dropdownColor: Colors.grey.shade300,
+                                iconEnabledColor: Colors.grey,
+                                alignment: Alignment.center,
                                 validator: (value) {
                                   if (value == null) return 'Choose category';
                                   return null;
                                 },
-                                decoration: InputDecoration(
-                                  label: Text(order.orderStatus),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
+                                decoration:  InputDecoration(
+                                    label: Text(order.orderStatus),
+                                    labelStyle: const TextStyle(
+                                        color: grey,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                    contentPadding: const  EdgeInsets.symmetric(
+                                        horizontal: 5, vertical: 5),
+                                    border: InputBorder.none),
                                 items: status.map((stat) {
                                   return DropdownMenuItem(
                                     value: stat,
-                                    child: Text(stat),
+                                    child: Text(
+                                      stat,
+                                      style: semiBoldGrey,
+                                    ),
                                   );
                                 }).toList(),
                                 onChanged: (value) async {
@@ -134,10 +145,9 @@ class ScreenOrderDetails extends StatelessWidget {
                       width: width,
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       decoration: BoxDecoration(
-                        color: Colors.grey[100],
+                        color: Colors.grey[200],
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                            color: Colors.grey.withOpacity(0.5), width: 2),
+                        border: Border.all(color: Colors.yellow, width: 1),
                       ),
                       child: Column(
                         children: [
@@ -149,10 +159,10 @@ class ScreenOrderDetails extends StatelessWidget {
                                 heading: 'Items',
                                 values: '',
                               ),
-                              SectionHead(
-                                heading: 'Count',
-                                values: '',
-                              ),
+                              kWidth50,
+                              kWidth20,
+                              kHight20,
+                              Text('Count',style: semiBoldGrey,),
                               SectionHead(
                                 heading: '',
                                 values: 'Amount',
@@ -170,7 +180,7 @@ class ScreenOrderDetails extends StatelessWidget {
                                 children: [
                                   Text(
                                     state.orderItems[index].name,
-                                    style: boldGrey,
+                                    style: semiBoldBlack,
                                   ),
                                   SizedBox(
                                     width: width * .25,
@@ -180,11 +190,11 @@ class ScreenOrderDetails extends StatelessWidget {
                                       children: [
                                         Text(
                                           'x ${state.orderItems[index].quantity}',
-                                          style: semiBoldBlack,
+                                          style: boldGrey,
                                         ),
                                         Text(
                                           '₹ ${state.orderItems[index].salePrice * state.orderItems[index].quantity}',
-                                          style: boldOrange,
+                                          style: boldGrey,
                                         ),
                                       ],
                                     ),
@@ -194,7 +204,10 @@ class ScreenOrderDetails extends StatelessWidget {
                             },
                           ),
                           kHight10,
-                          divider2,
+                          Divider(
+                            color: Colors.grey.shade300,
+                            thickness: 1.5,
+                          ),
                           kHight10,
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -205,9 +218,8 @@ class ScreenOrderDetails extends StatelessWidget {
                               ),
                               Text(
                                 '₹ ${order.totalPrice - order.deliveryCharge}',
-                                style: boldOrange,
+                                style: boldGrey,
                               ),
-                              
                             ],
                           ),
                           kHight10,

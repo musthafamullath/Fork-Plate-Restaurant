@@ -1,5 +1,6 @@
 
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 
@@ -20,7 +21,7 @@ class DishCircleAvatar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(width: 1.2, color: orange)),
+          border: Border.all(width: 1, color: yellow)),
       child: CircleAvatar(
         radius: min(
           width * .095,

@@ -28,37 +28,40 @@ class DropDownWidget extends StatelessWidget {
             .firstWhere((element) => element.id == dish!.categoryId)
             .name!
         : '';
-    return DropdownButtonFormField(
-      validator: (value) {
-        if (value == null) return 'Choose category';
-        return null;
-      },
-      decoration: InputDecoration(
-        label: Text(dish != null ? category : title),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 18,
-          vertical: 10,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.grey.shade300, borderRadius: BorderRadius.circular(10)),
+      child: DropdownButtonFormField(
+        dropdownColor: Colors.grey.shade300,
+        iconSize: 35,
+        
+        validator: (value) {  
+          if (value == null) return 'Choose category';
+          return null;
+        },
+        decoration: InputDecoration(
+            label: Text(dish != null ? category : title),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 18,
+              vertical: 10,
+            ),
+            border: InputBorder.none),
+        items: categories.map((cat) {
+          return DropdownMenuItem(
+            value: cat,
+            child: Text(cat.name!),
+          );
+        }).toList(),
+        onChanged: (value) async {
+          category = value?.name ?? 'Biriyani';
+
+          context.read<DishBloc>().add(
+                AddCategoryEvent(
+                  categoryId: value!.id!,
+                ),
+              );
+        },
       ),
-      items: categories.map((cat) {
-        
-        return DropdownMenuItem(
-          value: cat,
-          child: Text(cat.name!),
-        );
-      }).toList(),
-      onChanged: (value) async {
-        category = value?.name ?? 'Biriyani';
-        
-        context.read<DishBloc>().add(
-              AddCategoryEvent(
-                categoryId: value!.id!,
-              ),
-            );
-      },
     );
   }
 }

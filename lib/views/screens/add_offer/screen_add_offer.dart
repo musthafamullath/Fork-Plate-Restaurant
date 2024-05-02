@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +14,6 @@ import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/button_widget.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/text_field_widget.dart';
 import 'package:foodie_fly_restaurant/views/widgets/function_widgets/snackbar_function.dart';
-
 import 'package:image_picker/image_picker.dart';
 
 class ScreenAddOffer extends StatefulWidget {
@@ -42,8 +42,8 @@ class _ScreenAddOfferState extends State<ScreenAddOffer> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar:  PreferredSize(
-        preferredSize: Size.fromHeight(70),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(90),
         child: AppBarWidget(title: 'Add New Offer'),
       ),
       body: SingleChildScrollView(
@@ -63,20 +63,20 @@ class _ScreenAddOfferState extends State<ScreenAddOffer> {
                   },
                   child: Container(
                     width: width,
-                    height: height * .25,
+                    height: height * .3,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(width: .5),
+                     color: Colors.grey.shade300
                     ),
                     child: image != ''
                         ? Image.file(File(image))
                         : const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.add_a_photo, size: 80),
+                              Icon(Icons.add_a_photo, size: 70,color: yellow,),
                               Text(
                                 'Add Banner',
-                                style: boldBlack,
+                                style: boldGrey,
                               )
                             ],
                           ),
@@ -96,30 +96,36 @@ class _ScreenAddOfferState extends State<ScreenAddOffer> {
                 kHight10,
                 BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
-                    return DropdownButtonFormField(
-                      validator: (value) {
-                        if (value == null) {
-                          return "Choose category";
-                        }
-                        return null;
-                      },
-                      decoration: InputDecoration(
-                          label: Text(state.categories[0].name!),
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 18, vertical: 10),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          )),
-                      items: state.categories.map((cat) {
-                        return DropdownMenuItem(
-                          value: cat,
-                          child: Text(cat.name!),
-                        );
-                      }).toList(),
-                      onChanged: (value) async {
-                        categoryId = value!.id!;
-                        log(categoryId.toString());
-                      },
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade300,
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: DropdownButtonFormField(
+                        dropdownColor: Colors.grey.shade300,
+                        iconSize: 32,
+                        validator: (value) {
+                          if (value == null) {
+                            return "Choose category";
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                            label: Text(state.categories[0].name!),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 18, vertical: 10),
+                            border: InputBorder.none),
+                        items: state.categories.map((cat) {
+                          return DropdownMenuItem(
+                            value: cat,
+                            child: Text(cat.name!),
+                          );
+                        }).toList(),
+                        onChanged: (value) async {
+                          categoryId = value!.id!;
+                          log(categoryId.toString());
+                        },
+                      ),
                     );
                   },
                 ),
@@ -159,13 +165,13 @@ class _ScreenAddOfferState extends State<ScreenAddOffer> {
                       showSnack(context, orange,
                           "error occured while creating offer");
                     } else {
-                      showSnack(context, amber, "pls wait");
+                      
                     }
                   },
                   builder: (context, state) {
                     return ButtonWidget(
                       width: width,
-                      text: 'Add offer',
+                      text: 'ADD OFFER',
                       onPressed: () async {
                         if (formkey.currentState!.validate()) {
                           if (image == '') {

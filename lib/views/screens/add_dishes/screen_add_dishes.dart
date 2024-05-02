@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +10,6 @@ import 'package:foodie_fly_restaurant/models/dish.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 import 'package:foodie_fly_restaurant/views/screens/add_dishes/widgets/pick_image.dart';
-
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/button_widget.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/text_field_widget.dart';
@@ -89,7 +87,7 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
     final heightSize = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(70),
+        preferredSize: const Size.fromHeight(80),
         child: AppBarWidget(
           title: widget.operatior == Operatior.add
               ? "Add New Dish"
@@ -131,17 +129,14 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                               imagePath = await showBottomSheetWidget(context);
                               if (imagePath != null) {
                                 image = imagePath!.path;
-
-                                // print('image $image');
                               }
                             },
                             child: Container(
                                 width: widthSize,
-                                height: heightSize * .25,
+                                height: heightSize * .3,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(width: .9),
-                                ),
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.grey.shade300),
                                 child: (widget.operatior == Operatior.add)
                                     ? image != ''
                                         ? Image.file(File(image))
@@ -153,7 +148,8 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                                             children: [
                                               Icon(
                                                 Icons.add_a_photo,
-                                                size: 64,
+                                                size: 70,
+                                                color: yellow,
                                               ),
                                               Text(
                                                 "Add Image",
@@ -162,7 +158,15 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                                             ],
                                           )
                                     : image != ''
-                                        ? Image.network(image)
+                                        ? ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.network(
+                                              image,
+                                              filterQuality: FilterQuality.high,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          )
                                         : null),
                           ),
                           kHight10,
@@ -240,7 +244,11 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                               BlocBuilder<DishBloc, DishState>(
                                 builder: (context, state) {
                                   return Switch(
-                                    activeColor: green,
+                                    focusColor: red,
+                                    hoverColor: green,
+                                    inactiveTrackColor: white,
+                                    activeColor: yellow,
+                                    inactiveThumbColor: grey,
                                     value: state is AddVegState
                                         ? state.isVeg
                                         : isVeg,
@@ -268,7 +276,9 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                                     current is AddAvailState,
                                 builder: (context, state) {
                                   return Switch(
-                                    activeColor: green,
+                                    activeColor: yellow,
+                                    inactiveThumbColor: grey,
+                                    inactiveTrackColor: white,
                                     value: state is AddAvailState
                                         ? state.isAvail
                                         : isAvailable,
@@ -318,7 +328,9 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                                     context.read<DishBloc>().add(
                                         // ignore: use_build_context_synchronously
                                         AddNewDishEvent(
-                                            dish: dish, context: context));
+                                            // ignore: use_build_context_synchronously
+                                            dish: dish,
+                                            context: context));
                                   } else {
                                     DishModel dishModel = DishModel(
                                       dishId: widget.dishModel!.dishId!,

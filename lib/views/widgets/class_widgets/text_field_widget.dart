@@ -19,22 +19,26 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: userController,
-      obscureText: obscureText!,
-      keyboardType: inputType,
-      validator: validator,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      decoration: InputDecoration(
-        label: Text(label!),
-        suffixIcon: suffixIcon,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
-        
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(10)
+      ),
+      child: TextFormField(
+        controller: userController,
+        obscureText: obscureText!,
+        keyboardType: inputType,
+        validator: validator,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        decoration: InputDecoration(
+          label: Text(label!),
+          suffixIcon: suffixIcon,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 10,
+          ),
+          
+          border: InputBorder.none
         ),
       ),
     );

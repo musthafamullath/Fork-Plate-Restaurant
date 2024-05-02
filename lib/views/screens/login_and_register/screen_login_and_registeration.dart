@@ -15,21 +15,23 @@ class ScreenLoginRestration extends StatelessWidget {
           preferredSize:
               Size.fromHeight(MediaQuery.of(context).size.height * 1.4 / 10),
           child: AppBar(
-            backgroundColor: orangePointWithblue,
-            title: const Text(
-              "Foodie Fly Restaurent",
-              style: TextStyle(
-                  fontSize: 26,
+            backgroundColor: yellow,
+            title: const Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text(
+                "Foodie Fly Restaurent",
+                style: TextStyle(
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                  wordSpacing: 1.5),
+                ),
+              ),
             ),
             centerTitle: true,
             bottom: const TabBar(
-              labelColor: white,
-              unselectedLabelColor: black,
+              labelColor: black,
+              unselectedLabelColor: white,
               indicatorWeight: 7.5,
-              indicatorColor: white,
+              indicatorColor: black,
               indicatorPadding: EdgeInsets.fromLTRB(0, 10, 0, 0),
               indicatorSize: TabBarIndicatorSize.label,
               tabs: <Widget>[
@@ -41,7 +43,7 @@ class ScreenLoginRestration extends StatelessWidget {
                         'Login',
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -55,7 +57,7 @@ class ScreenLoginRestration extends StatelessWidget {
                         "Sign Up",
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

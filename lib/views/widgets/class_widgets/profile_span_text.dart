@@ -16,7 +16,7 @@ class ProfileSpanText extends StatelessWidget {
     return Text.rich(
       TextSpan(children: [
         TextSpan(text: indicateText, style: boldGrey),
-        TextSpan(text: valueText, style: boldOrange)
+        TextSpan(text: valueText, style: boldYellow)
       ]),
     );
   }
