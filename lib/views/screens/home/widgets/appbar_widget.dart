@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/profile/profile_bloc.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
+
 import '../../../../utils/text_styles.dart';
 
 class HomeAppBarWidget extends StatelessWidget {
@@ -18,16 +19,16 @@ class HomeAppBarWidget extends StatelessWidget {
     return Container(
       width: width,
       height: width * 10 / 10,
-      decoration: BoxDecoration(
+      decoration:const BoxDecoration(
         border: BorderDirectional(
           bottom: BorderSide(
-            color: orangePointShade800,
+            color: black,
             width: 10,
           ),
         ),
-        backgroundBlendMode: BlendMode.srcATop,
-        color: orangePointWithblue,
-        borderRadius: const BorderRadius.only(
+        backgroundBlendMode: BlendMode.darken,
+        color: yellow,
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(35),
           bottomRight: Radius.circular(35),
         ),
@@ -43,16 +44,16 @@ class HomeAppBarWidget extends StatelessWidget {
                       children: <TextSpan>[
                         const TextSpan(
                           text: 'Hello, Welome  ',
-                          style: bigBoldWhite,
+                          style: bigBoldBlack,
                         ),
                         TextSpan(
                           text: state.profile?.name ??
                               "Restaurant Name",
-                          style: bigBoldWhite,
+                          style: bigBoldBlack,
                         ),
                         const TextSpan(
                           text: " . . .",
-                          style: bigBoldWhite,
+                          style: bigBoldBlack,
                         ),
                       ],
                     ),

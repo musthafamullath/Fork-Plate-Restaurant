@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_fly_restaurant/controllers/blocs/bloc/order_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/order/order_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/bottom_navigation/bottom_navigation_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/category/category_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/dish/dish_bloc.dart';

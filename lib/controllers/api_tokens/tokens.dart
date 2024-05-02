@@ -20,13 +20,3 @@ getSellerId()async{
   final sellerId = preferences.getInt("sellerId" );
   return sellerId;
 }
-
-// saveDishId(int dishId)async{
-//   final SharedPreferences preferences = await SharedPreferences.getInstance();
-//   await preferences.setInt("dishId", dishId);
-// }
-// getDishId()async{
-//   final SharedPreferences preferences = await SharedPreferences.getInstance();
-//   final sellerId = preferences.getInt("dishId" );
-//   return sellerId;
-// }

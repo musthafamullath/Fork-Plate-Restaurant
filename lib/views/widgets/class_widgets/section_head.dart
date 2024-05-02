@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 
 class SectionHead extends StatelessWidget {
@@ -12,8 +11,8 @@ class SectionHead extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          TextSpan(text: heading,style: boldBlack),
-          TextSpan(text: values ,style: boldOrange,),
+          TextSpan(text: heading,style: semiBoldBlack),
+          TextSpan(text: values ,style: semiBoldGrey,),
         ]
       )
     );

@@ -15,7 +15,7 @@ class ScreenProfile extends StatelessWidget {
     final size = MediaQuery.of(context).size.width;
     context.read<ProfileBloc>().add(GetProfileEvent());
     return Scaffold(
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: AppBarWidget(title: "Profile"),
       ),

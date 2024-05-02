@@ -42,7 +42,7 @@ class _ScreenAddOfferState extends State<ScreenAddOffer> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: const PreferredSize(
+      appBar:  PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: AppBarWidget(title: 'Add New Offer'),
       ),

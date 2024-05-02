@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
-import 'package:lottie/lottie.dart';
 
 class SplashComponeses extends StatelessWidget {
   const SplashComponeses({
@@ -10,33 +9,54 @@ class SplashComponeses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
+    return const SingleChildScrollView(
+      child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Lottie.asset(
-              'assets/lotties/restaurant_splash.json',
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.high,
-              repeat: false,
-              reverse: true,
-              height: MediaQuery.of(context).size.height * 3 / 10,
-              width: MediaQuery.of(context).size.width * 10 / 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 110, 0, 0),
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 7 / 10,
-                height: MediaQuery.of(context).size.height * 3 / 10,
-                
-                 
-                  child: const Text(
-                    "Hungry for success? Dive into our food seller app and elevate your culinary journey with ease.",
-                    style: TextStyle(fontSize: 20, color: white),
+            kHight100,
+            kHight100,
+            kHight100,
+            kHight100,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text.rich(TextSpan(children: [
+                  TextSpan(
+                    text: 'FOODIE ',
+                    style: TextStyle(
+                      fontSize: 50,
+                      color: black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-              
+                  TextSpan(
+                    text: 'FLY',
+                    style: TextStyle(
+                      backgroundColor: black,
+                      decoration: TextDecoration.underline,
+                      decorationColor: yellow,
+                      decorationStyle: TextDecorationStyle.wavy,
+                      fontSize: 50,
+                      color: yellow,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ]))
+              ],
+            ),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'RESTAURANT',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

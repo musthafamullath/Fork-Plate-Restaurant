@@ -41,8 +41,9 @@ class HomeCategoryGridviews extends StatelessWidget {
                 alignment: Alignment.center,
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                 decoration: BoxDecoration(
-                  color: Colors.orange[50],
+                  color: Colors.grey[100],
                   borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 01.5,color: grey.withOpacity(0.5))
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -50,15 +51,16 @@ class HomeCategoryGridviews extends StatelessWidget {
                   children: [
                     Image.network(
                       index < 6 ? state.categories[index].iconUrl! : '',
-                      height: heightSize * 1.1 / 10,
+                      height: heightSize * 1 / 10,
                     ),
                     Text(
                       index < 6 ? state.categories[index].name! : '',
                       style: const TextStyle(
-                          fontSize: 16,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: black),
-                    )
+                          color: grey),
+                    ),
+                    kHight10,
                   ],
                 ),
               ),

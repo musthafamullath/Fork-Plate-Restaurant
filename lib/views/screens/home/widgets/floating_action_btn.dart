@@ -14,7 +14,7 @@ class FloatingActionBTN extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-           splashColor: orangePointWithblue,
+           splashColor: grey,
             backgroundColor: white,
             
             onPressed:onPressed,

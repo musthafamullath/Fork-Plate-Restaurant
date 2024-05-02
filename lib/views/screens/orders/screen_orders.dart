@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodie_fly_restaurant/controllers/blocs/bloc/order_bloc.dart';
+import 'package:foodie_fly_restaurant/controllers/blocs/order/order_bloc.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/utils/text_styles.dart';
 import 'package:foodie_fly_restaurant/views/screens/order_details/order_details.dart';
@@ -27,18 +27,18 @@ class ScreenOrders extends StatelessWidget {
               child:
                BlocBuilder<OrderBloc, OrderState>(
                 builder: (context, state) {
-                  return state.order.isEmpty
+                  return state.orders.isEmpty
                       ? const Center(child: Text('All Order page is Empty'))
                       : 
                       ListView.builder(
-                          itemCount: state.order.length,
+                          itemCount: state.orders.length,
                           itemBuilder: (context, index) {
                             return InkWell(
                               onTap: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) => ScreenOrderDetails(
-                                      order: state.order[index],
+                                      order: state.orders[index],
                                     ),
                                   ),
                                 );
@@ -62,7 +62,7 @@ class ScreenOrders extends StatelessWidget {
                                       children: [
                                         const Text('Order Id: '),
                                         Text(
-                                          state.order[index].orderId.toString(),
+                                          state.orders[index].orderId.toString(),
                                           overflow: TextOverflow.ellipsis,
                                           style: boldOrange,
                                         ),
@@ -77,7 +77,7 @@ class ScreenOrders extends StatelessWidget {
                                         Text(
                                           DateFormat("d MMM yyyy").format(
                                             DateTime.parse(state
-                                                .order[index].deliveryDate),
+                                                .orders[index].deliveryDate),
                                           ),
                                           style: semiBoldOrange,
                                         ),
@@ -91,7 +91,7 @@ class ScreenOrders extends StatelessWidget {
                                       children: [
                                         const Text('Total Amount: '),
                                         Text(
-                                          '₹ ${state.order[index].totalPrice - state.order[index].deliveryCharge}',
+                                          '₹ ${state.orders[index].totalPrice - state.orders[index].deliveryCharge}',
                                           style: semiBoldOrange,
                                         ),
                                       ],
@@ -103,7 +103,7 @@ class ScreenOrders extends StatelessWidget {
                                       children: [
                                         const Text('Item count: '),
                                         Text(
-                                          state.order[index].itemCount
+                                          state.orders[index].itemCount
                                               .toString(),
                                           style: semiBoldOrange,
                                         ),
@@ -116,7 +116,7 @@ class ScreenOrders extends StatelessWidget {
                                       children: [
                                         const Text('Delivery Status: '),
                                         Text(
-                                          state.order[index].orderStatus,
+                                          state.orders[index].orderStatus,
                                           style: semiBoldOrange,
                                         ),
                                       ],
@@ -135,7 +135,7 @@ class ScreenOrders extends StatelessWidget {
               padding: const EdgeInsets.all(24),
               child: BlocBuilder<OrderBloc, OrderState>(
                 builder: (context, state) {
-                  final orders = state.order
+                  final orders = state.orders
                       .where((element) =>
                           element.orderStatus.toLowerCase() == 'cooking')
                       .toList();
@@ -201,7 +201,7 @@ class ScreenOrders extends StatelessWidget {
                                       children: [
                                         const Text('Total Amount: '),
                                         Text(
-                                          '₹ ${state.order[index].totalPrice - state.order[index].deliveryCharge}',
+                                          '₹ ${state.orders[index].totalPrice - state.orders[index].deliveryCharge}',
                                           style: semiBoldBlack,
                                         ),
                                       ],
@@ -249,7 +249,7 @@ class ScreenOrders extends StatelessWidget {
               padding: const EdgeInsets.all(24),
               child: BlocBuilder<OrderBloc, OrderState>(
                 builder: (context, state) {
-                  final orders = state.order
+                  final orders = state.orders
                       .where((element) =>
                           element.orderStatus.toLowerCase() == 'food ready')
                       .toList();
@@ -315,7 +315,7 @@ class ScreenOrders extends StatelessWidget {
                                       children: [
                                         const Text('Total Amount: '),
                                         Text(
-                                          '₹ ${state.order[index].totalPrice - state.order[index].deliveryCharge}',
+                                          '₹ ${state.orders[index].totalPrice - state.orders[index].deliveryCharge}',
                                           style: semiBoldBlack,
                                         ),
                                       ],
@@ -358,7 +358,7 @@ class ScreenOrders extends StatelessWidget {
               padding: const EdgeInsets.all(24),
               child: BlocBuilder<OrderBloc, OrderState>(
                 builder: (context, state) {
-                  final orders = state.order
+                  final orders = state.orders
                       .where((element) =>
                           element.orderStatus.toLowerCase() == 'delivered')
                       .toList();
@@ -424,7 +424,7 @@ class ScreenOrders extends StatelessWidget {
                                       children: [
                                         const Text('Total Amount: '),
                                         Text(
-                                          '₹ ${state.order[index].totalPrice - state.order[index].deliveryCharge}',
+                                          '₹ ${state.orders[index].totalPrice - state.orders[index].deliveryCharge}',
                                           style: semiBoldBlack,
                                         ),
                                       ],

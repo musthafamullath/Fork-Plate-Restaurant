@@ -19,6 +19,7 @@ final Color orangePointWithblue = Colors.orange.withBlue(300);
 final Color orangePointShade800 = Colors.orange.shade800;
 const Color red = Colors.red;
 const Color amber = Colors.amber;
+const Color yellow = Color(0xFFFFDB01);
 const Color green = Colors.green;
 const Color white = Colors.white;
 const Color black = Colors.black;

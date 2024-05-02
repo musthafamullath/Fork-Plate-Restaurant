@@ -26,8 +26,9 @@ class ScreenMainPage extends StatelessWidget {
         return Scaffold(
           body: screens[state.index],
           bottomNavigationBar: SalomonBottomBar(
-            backgroundColor: orangePointShade800,
+            backgroundColor: black,
             selectedItemColor: white,
+            unselectedItemColor: white,
             curve: Curves.decelerate,
             currentIndex: state.index,
             onTap: (value) => context
