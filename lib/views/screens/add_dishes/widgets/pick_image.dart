@@ -13,20 +13,20 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
       context: context,
       builder: (context) {
         return Container(
-          height: MediaQuery.of(context).size.height * 1.5 / 10,
+          height: MediaQuery.of(context).size.height * 1.7 / 10,
           width: double.infinity,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.orange[50]),
+              color: Colors.grey.shade200),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
               Text(
                 'Select the image source:',
-                style: TextStyle(fontSize: 20, color: Colors.orange[700]),
+                style: TextStyle(fontSize: 20, color: Colors.grey.shade600),
               ),
-              divider2,
+              divider3,
               kHight20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -40,11 +40,11 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
                     },
                     icon: const Icon(
                       Icons.camera,
-                      color: orange,
+                      color: green,
                     ),
                     label: const Text(
                       'Camera',
-                      style: boldYellow,
+                      style: bigBoldYellow,
                     ),
                   ),
                   TextButton.icon(
@@ -57,11 +57,11 @@ Future<XFile> showBottomSheetWidget(BuildContext context) async {
                     },
                     icon: const Icon(
                       Icons.image,
-                      color: orange,
+                      color: green,
                     ),
                     label: const Text(
                       'Gallery',
-                      style: boldYellow,
+                      style: bigBoldYellow,
                     ),
                   ),
                 ],

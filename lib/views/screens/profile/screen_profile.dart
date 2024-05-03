@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodie_fly_restaurant/controllers/blocs/profile/profile_bloc.dart';
 import 'package:foodie_fly_restaurant/utils/constants.dart';
 import 'package:foodie_fly_restaurant/views/screens/profile/widgets/dialog_box.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget.dart';
-import 'package:foodie_fly_restaurant/views/widgets/class_widgets/button_widget.dart';
+import 'package:foodie_fly_restaurant/views/widgets/class_widgets/section_head.dart';
 
 import '../../widgets/class_widgets/profile_span_text.dart';
 
@@ -83,17 +84,82 @@ class ScreenProfile extends StatelessWidget {
                       ),
                     ),
                     kHight20,
-                    ButtonWidget(
-                      width: size * 6 / 10,
-                      height: size * 2.7 / 10,
-                      text: "LOG OUT",
-                      onPressed: () async {
-                        showDialogBOx(context);
-                      },
-                    ),
                   ],
                 );
               },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SectionHead(
+                  heading: 'Abouts',
+                  values: '',
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: CircleAvatar(
+                      backgroundColor: yellow.withOpacity(0.25),
+                      child: const Icon(
+                        CupertinoIcons.right_chevron,
+                      )),
+                ),
+              ],
+            ),
+            divider3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SectionHead(
+                  heading: 'Terms & Contention',
+                  values: '',
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: CircleAvatar(
+                      backgroundColor: yellow.withOpacity(0.25),
+                      child: const Icon(
+                        CupertinoIcons.right_chevron,
+                      )),
+                ),
+              ],
+            ),
+            divider3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SectionHead(
+                  heading: 'Privacy & Policy ',
+                  values: '',
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: CircleAvatar(
+                      backgroundColor: yellow.withOpacity(0.25),
+                      child: const Icon(
+                        CupertinoIcons.right_chevron,
+                      )),
+                ),
+              ],
+            ),
+            divider3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SectionHead(
+                  heading: 'LogOut',
+                  values: '',
+                ),
+                IconButton(
+                  onPressed: () async {
+                    showDialogBOx(context);
+                  },
+                  icon: CircleAvatar(
+                      backgroundColor: yellow.withOpacity(0.25),
+                      child: const Icon(
+                        CupertinoIcons.right_chevron,
+                      )),
+                ),
+              ],
             ),
           ],
         ),

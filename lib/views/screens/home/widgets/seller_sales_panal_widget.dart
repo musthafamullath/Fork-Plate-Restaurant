@@ -23,7 +23,7 @@ class SellerSalesPanalWidget extends StatelessWidget {
         height: width * 3 / 10,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: yellow,
+          color: white,
           border: Border.all(
             width: 1.5,
             color: black,
