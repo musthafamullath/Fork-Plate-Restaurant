@@ -69,7 +69,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                             )
                           : Column(
                               children: List.generate(
-                                2,
+                                state.orders.length,
                                 (index) {
                                   return Padding(
                                     padding: const EdgeInsets.only(
