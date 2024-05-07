@@ -11,10 +11,9 @@ about Your privacy rights and how the law protects You.
 
 We use Your Personal data to provide and improve the Service. By using the
 Service, You agree to the collection and use of information in accordance with
-this Privacy Policy. 
-This Privacy Policy has been created with the help of the
-[Privacy Policy Generator](https://www.termsfeed.com/privacy-policy-
-generator/).
+this Privacy Policy. This Privacy Policy has been created with the help of the
+[Free Privacy Policy Generator](https://www.freeprivacypolicy.com/free-
+privacy-policy-generator/).
 
 Interpretation and Definitions  
 ------------------------------
@@ -39,11 +38,11 @@ For the purposes of this Privacy Policy:
     more of the shares, equity interest or other securities entitled to vote
     for election of directors or other managing authority.
 
-  * Application refers to Foodie Fly Restaurant , the software program
-    provided by the Company.
+  * Application refers to Foodie Fly Restaurant, the software program provided
+    by the Company.
 
   * Company (referred to as either "the Company", "We", "Us" or "Our" in this
-    Agreement) refers to Foodie Fly Restaurant .
+    Agreement) refers to Foodie Fly Restaurant.
 
   * Country refers to: Kerala, India
 
@@ -327,14 +326,16 @@ Contact Us
 
 If you have any questions about this Privacy Policy, You can contact us:
 
-  * By email: musthafa404601kalad@gmail.com ''';
+  * By email: musthafa404601kalad@gmail.com
+
+ ''';
 
 //-----------------------------------------------------------------------------------------------//
 
 String termsAndContitions = 
 '''
 Terms and Conditions  
-====================
+--------------------
 
 Last updated: May 07, 2024
 
@@ -380,8 +381,9 @@ For the purposes of these Terms and Conditions:
   * Terms and Conditions (also referred as "Terms") mean these Terms and
     Conditions that form the entire agreement between You and the Company
     regarding the use of the Service. This Terms and Conditions agreement has
-    been created with the help of the [Terms and Conditions
-    Generator](https://www.termsfeed.com/terms-conditions-generator/).
+    been created with the help of the [Free Terms and Conditions
+    Generator](https://www.freeprivacypolicy.com/free-terms-and-conditions-
+    generator/).
 
   * Third-party Social Media Service means any services or content (including
     data, information, products or services) provided by a third-party that
@@ -578,6 +580,7 @@ If you have any questions about these Terms and Conditions, You can contact
 us:
 
   * By email: musthafa404601kalad@gamil.com
+
 ''';
 
 //---------------------------------------------------------------------------------------//

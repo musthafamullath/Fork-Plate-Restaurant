@@ -166,40 +166,40 @@ class ScreenOffers extends StatelessWidget {
                                                     .substring(0, 6)),
                                           ],
                                         ),
-                                        Column(
-                                          children: <Widget>[
-                                            CircleAvatar(
+                                        // Column(
+                                        //   children: <Widget>[
+                                        //     CircleAvatar(
                                               
-                                              backgroundColor:
-                                                  Colors.grey.withAlpha(7),
-                                              radius: 25,
-                                              child: CircleAvatar(
-                                                backgroundColor: Colors.grey
-                                                    .withOpacity(0.09),
-                                                child: const Icon(
-                                                  CupertinoIcons
-                                                      .eyedropper_halffull,
-                                                  size: 22,color: grey,
-                                                ),
-                                              ),
-                                            ),
-                                            const Divider(),
-                                            CircleAvatar(
+                                        //       backgroundColor:
+                                        //           Colors.grey.withAlpha(7),
+                                        //       radius: 25,
+                                        //       child: CircleAvatar(
+                                        //         backgroundColor: Colors.grey
+                                        //             .withOpacity(0.09),
+                                        //         child: const Icon(
+                                        //           CupertinoIcons
+                                        //               .eyedropper_halffull,
+                                        //           size: 22,color: grey,
+                                        //         ),
+                                        //       ),
+                                        //     ),
+                                        //     const Divider(),
+                                        //     CircleAvatar(
                                               
-                                              backgroundColor:
-                                                  Colors.grey.withAlpha(7),
-                                              radius: 25,
-                                              child: CircleAvatar(
-                                                backgroundColor: Colors.grey
-                                                    .withOpacity(0.09),
-                                                child: const Icon(
-                                                  CupertinoIcons.delete,
-                                                  size: 25,color: grey,
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        )
+                                        //       backgroundColor:
+                                        //           Colors.grey.withAlpha(7),
+                                        //       radius: 25,
+                                        //       child: CircleAvatar(
+                                        //         backgroundColor: Colors.grey
+                                        //             .withOpacity(0.09),
+                                        //         child: const Icon(
+                                        //           CupertinoIcons.delete,
+                                        //           size: 25,color: grey,
+                                        //         ),
+                                        //       ),
+                                        //     )
+                                        //   ],
+                                        // )
                                       ],
                                     )
                                   ],

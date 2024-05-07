@@ -7,7 +7,7 @@ import 'package:foodie_fly_restaurant/utils/strings.dart';
 import 'package:foodie_fly_restaurant/views/screens/profile/widgets/dialog_box.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/app_bar_widget.dart';
 import 'package:foodie_fly_restaurant/views/widgets/class_widgets/section_head.dart';
-import 'package:foodie_fly_restaurant/views/widgets/class_widgets/string-genarator.dart';
+import 'package:foodie_fly_restaurant/views/widgets/class_widgets/string_genarator.dart';
 
 import '../../widgets/class_widgets/profile_span_text.dart';
 
