@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -324,11 +326,11 @@ class _ScreenAddDishesState extends State<ScreenAddDishes> {
                                       isVeg: isVeg,
                                       isAvailable: isAvailable,
                                     );
-                                    // ignore: use_build_context_synchronously
+                                    
                                     context.read<DishBloc>().add(
-                                        // ignore: use_build_context_synchronously
+                                        
                                         AddNewDishEvent(
-                                            // ignore: use_build_context_synchronously
+                                            
                                             dish: dish,
                                             context: context));
                                   } else {
